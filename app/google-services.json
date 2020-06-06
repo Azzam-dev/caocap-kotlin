@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "358799497477",
+    "firebase_url": "https://caocap-x.firebaseio.com",
+    "project_id": "caocap-x",
+    "storage_bucket": "caocap-x.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358799497477:android:2ca99afea32c4135277f6c",
+        "android_client_info": {
+          "package_name": "com.ficruty.caocap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358799497477-psde4dk7qohhje4vispnkupjh27qlh1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ficruty.caocap",
+            "certificate_hash": "b75411e19eee83557c5b7f750aa3763c0569be55"
+          }
+        },
+        {
+          "client_id": "358799497477-e2kmn7cofk8avcjh4253rvldghmhi43d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsMn5xsyLb7fOroDckL3FfokSa5NM-7JE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358799497477-e2kmn7cofk8avcjh4253rvldghmhi43d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "358799497477-khb7vh2g8qpgjcg9jum292uk8ajcos5a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Ficruty.caocap",
+                "app_store_id": "1447742145"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
