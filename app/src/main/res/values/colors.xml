@@ -3,4 +3,6 @@
     <color name="colorPrimary">#2B2B2B</color>
     <color name="colorPrimaryDark">#313943</color>
     <color name="colorAccent">#4BA6F8</color>
+    <color name="signInSignUpBackground">#d9d8d2</color>
+    <color name="signInSignUpText">#3a4dc9</color>
 </resources>
