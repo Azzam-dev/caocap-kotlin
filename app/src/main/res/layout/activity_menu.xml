@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/caocapDefaultBackground"
+        tools:context=".MenuActivity">
+
+    <ImageView
+            android:id="@+id/menu_acitivity_edit_profile_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline9"
+            app:srcCompat="@drawable/user_folder_filled" />
+
+    <TextView
+            android:id="@+id/menu_activity_edit_profile_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Edit profile"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_acitivity_edit_profile_image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menu_acitivity_edit_profile_image_view"
+            app:layout_constraintTop_toTopOf="@+id/menu_acitivity_edit_profile_image_view"
+            app:layout_constraintVertical_bias="0.555" />
+
+    <ImageView
+            android:id="@+id/menu_activity_settings_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="@+id/menu_acitivity_edit_profile_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/menu_acitivity_edit_profile_image_view"
+            app:srcCompat="@drawable/settings" />
+
+    <TextView
+            android:id="@+id/menu_activity_settings_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="settings"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_activity_settings_image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menu_activity_settings_image_view"
+            app:layout_constraintTop_toTopOf="@+id/menu_activity_settings_image_view" />
+
+    <ImageView
+            android:id="@+id/menu_activity_logout_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="@+id/menu_activity_settings_image_view"
+            app:layout_constraintTop_toBottomOf="@+id/menu_activity_settings_image_view"
+            app:srcCompat="@drawable/logout_rounded_up_filled" />
+
+    <TextView
+            android:id="@+id/menu_activity_logout_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="logout"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/menu_activity_logout_image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menu_activity_logout_image_view"
+            app:layout_constraintTop_toTopOf="@+id/menu_activity_logout_image_view" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

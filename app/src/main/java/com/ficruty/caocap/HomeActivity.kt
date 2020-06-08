@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-    private fun checkLogin(){
+     fun checkLogin(){
         var uid=Firebase.auth.uid
         if(uid==null){
             var intent= Intent(this,LoginActivity::class.java)
