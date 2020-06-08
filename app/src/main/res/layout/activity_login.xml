@@ -91,7 +91,7 @@
             android:ems="10"
             android:hint="email"
             android:inputType="textEmailAddress"
-            android:paddingLeft="32dp"
+            android:paddingLeft="35dp"
             app:layout_constraintBottom_toTopOf="@+id/login_password_edit_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -104,7 +104,7 @@
             android:ems="10"
             android:hint="password"
             android:inputType="textPassword"
-            android:paddingLeft="32dp"
+            android:paddingLeft="35dp"
             app:layout_constraintBottom_toTopOf="@+id/textView8"
             app:layout_constraintEnd_toEndOf="@+id/login_email_edit_text"
             app:layout_constraintStart_toStartOf="@+id/login_email_edit_text" />
@@ -125,4 +125,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.55960727" />
+
+    <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/login_email_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/login_email_edit_text"
+            app:srcCompat="@drawable/email_small" />
+
+    <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/login_password_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/login_password_edit_text"
+            app:srcCompat="@drawable/password_small" />
 </androidx.constraintlayout.widget.ConstraintLayout>

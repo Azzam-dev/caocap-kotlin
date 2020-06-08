@@ -3,8 +3,10 @@ package com.ficruty.caocap
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.view.*
@@ -15,6 +17,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        checkVersion()
         checkLogin()
 
         var uid= Firebase.auth.uid.toString()
@@ -24,7 +27,17 @@ class HomeActivity : AppCompatActivity() {
             var auth=Firebase.auth
             auth.signOut()
             checkLogin()
+
         }
+
+        home_goto_personal_acitivity.setOnClickListener(){
+            startActivity(Intent(this,PersonalActivity::class.java))
+        }
+
+
+    }
+    private fun checkVersion(){
+        // Get the Version from firebase/appData
     }
 
 

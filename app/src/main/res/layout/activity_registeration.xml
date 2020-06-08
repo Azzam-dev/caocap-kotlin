@@ -28,7 +28,7 @@
             android:ems="10"
             android:hint="password"
             android:inputType="textPassword"
-            android:paddingLeft="32dp"
+            android:paddingLeft="35dp"
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.543"
@@ -42,7 +42,7 @@
             android:ems="10"
             android:hint="email"
             android:inputType="textEmailAddress"
-            android:paddingLeft="32dp"
+            android:paddingLeft="35dp"
             app:layout_constraintBottom_toTopOf="@+id/registration_password_edit_text"
             app:layout_constraintEnd_toEndOf="@+id/registration_password_edit_text"
             app:layout_constraintStart_toStartOf="@+id/registration_password_edit_text" />
@@ -55,7 +55,7 @@
             android:ems="10"
             android:hint="username"
             android:inputType="textPersonName"
-            android:paddingLeft="32dp"
+            android:paddingLeft="35dp"
             app:layout_constraintBottom_toTopOf="@+id/registration_email_edit_text"
             app:layout_constraintEnd_toEndOf="@+id/registration_email_edit_text"
             app:layout_constraintStart_toStartOf="@+id/registration_email_edit_text" />
@@ -135,6 +135,38 @@
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/caocap_circle" />
+
+    <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_username_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/registration_username_edit_text"
+            app:srcCompat="@drawable/astronaut_small" />
+
+    <ImageView
+            android:id="@+id/imageView14"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_email_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/registration_email_edit_text"
+            app:srcCompat="@drawable/email_small" />
+
+    <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_password_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/registration_password_edit_text"
+            app:srcCompat="@drawable/password" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
