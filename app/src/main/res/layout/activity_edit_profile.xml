@@ -13,16 +13,19 @@
         android:layout_height="match_parent"
         >
 
-    <ImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/edit_profile_image_view"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
             android:layout_marginTop="32dp"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
+            android:src="@drawable/astronaut"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
     <Button
             android:id="@+id/button"
@@ -30,7 +33,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_red_color"
             app:layout_constraintEnd_toStartOf="@+id/button3"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +43,7 @@
             android:id="@+id/button3"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_orange_color"
             app:layout_constraintBottom_toBottomOf="@+id/button"
             app:layout_constraintEnd_toStartOf="@+id/button4"
             app:layout_constraintHorizontal_bias="0.5"
@@ -51,7 +54,7 @@
             android:id="@+id/button4"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_green_color"
             app:layout_constraintBottom_toBottomOf="@+id/button3"
             app:layout_constraintEnd_toStartOf="@+id/button5"
             app:layout_constraintHorizontal_bias="0.5"
@@ -62,7 +65,7 @@
             android:id="@+id/button5"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_blue_color"
             app:layout_constraintBottom_toBottomOf="@+id/button4"
             app:layout_constraintEnd_toStartOf="@+id/button6"
             app:layout_constraintHorizontal_bias="0.5"
@@ -73,7 +76,7 @@
             android:id="@+id/button6"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_pink_color"
             app:layout_constraintBottom_toBottomOf="@+id/button5"
             app:layout_constraintEnd_toStartOf="@+id/button7"
             app:layout_constraintHorizontal_bias="0.5"
@@ -85,7 +88,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="64dp"
-            android:background="@drawable/login_registeration_square"
+            android:background="@drawable/edit_profile_white_color"
             app:layout_constraintBottom_toBottomOf="@+id/button6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -298,7 +301,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
 
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </ScrollView>

@@ -24,7 +24,12 @@ class MenuActivity : AppCompatActivity() {
         menu_activity_edit_profile_text_view.setOnClickListener(){
             startActivity(Intent(this,EditProfileActivity::class.java))
         }
-
+        menu_activity_settings_image_view.setOnClickListener(){
+            startActivity(Intent(this,SettingActivity::class.java))
+        }
+        menu_activity_settings_text_view.setOnClickListener(){
+            startActivity(Intent(this,SettingActivity::class.java))
+        }
         menu_activity_logout_text_view.setOnClickListener(){
             logoutButton()
         }
