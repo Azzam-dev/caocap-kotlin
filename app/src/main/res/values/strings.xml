@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">caocap</string>
     <string name="explore">Explore</string>
+    <string name="caocapName">caocap name</string>
 </resources>

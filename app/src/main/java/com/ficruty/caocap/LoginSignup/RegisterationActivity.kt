@@ -28,8 +28,6 @@ class RegisterationActivity : AppCompatActivity() {
             var username=registration_username_edit_text.text.toString()
             var email=registration_email_edit_text.text.toString()
             var password=registration_password_edit_text.text.toString()
-            var provider="Firebase"
-
 
             if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
                 Toast.makeText(this,"Please fill your data",Toast.LENGTH_SHORT).show()
@@ -40,6 +38,7 @@ class RegisterationActivity : AppCompatActivity() {
                     auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                         var uid=Firebase.auth.uid.toString()
                         var reference=Firebase.database.getReference("users/$uid")
+                        var provider=Firebase.auth.currentUser?.providerId.toString()
                         reference.setValue(Users(username,email,provider))
                         var intent= Intent(this,HomeActivity::class.java)
                         intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)

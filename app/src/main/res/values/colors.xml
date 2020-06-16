@@ -6,4 +6,13 @@
     <color name="signInSignUpBackground">#d9d8d2</color>
     <color name="signInSignUpText">#3a4dc9</color>
     <color name="caocapDefaultBackground">#2B3844</color>
+    <color name="caocapDarkColor">#2B2B2B</color>
+    <color name="caocapButtonColor">#4AA4F8</color>
+    <color name="editProfileRed">#b8150d</color>
+    <color name="editProfileOrange">#bd8320</color>
+    <color name="editProfileGreen">#0aad43</color>
+    <color name="editProfileBlue">#1457b5</color>
+    <color name="editProfilePink">#74409c</color>
+    <color name="editProfileWhite">#dfdfdf</color>
+
 </resources>

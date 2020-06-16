@@ -5,6 +5,19 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <WebView
+            android:id="@+id/caocapPage"
+            android:layout_width="296dp"
+            android:layout_height="437dp"
+            android:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintCircleRadius="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+    </WebView>
+
     <Button
             android:id="@+id/button"
             android:layout_width="300dp"
@@ -17,16 +30,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <WebView
-            android:id="@+id/webView"
-            android:layout_width="300dp"
-            android:layout_height="440dp"
-            android:elevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintCircleRadius="150dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/caocapName"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/caocapPage" />
 
-    </WebView>
 </androidx.constraintlayout.widget.ConstraintLayout>
