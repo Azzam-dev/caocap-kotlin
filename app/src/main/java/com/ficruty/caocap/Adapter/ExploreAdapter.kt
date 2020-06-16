@@ -53,6 +53,14 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
         val myWebView:WebView = itemView.findViewById<WebView>(R.id.caocapPage)
         val myText:TextView = itemView.findViewById<TextView>(R.id.caocapName)
 
+        fun initialize(item:caocap, action:OnCaocapItemListener){
+
+        }
+
+    }
+
+    interface OnCaocapItemListener{
+        fun onItemClick(item:caocap, posotion:Int)
     }
 
 }

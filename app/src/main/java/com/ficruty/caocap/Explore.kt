@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ficruty.caocap.Adapter.ExploreAdapter
+import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.Database.mySimpleData
 import com.ficruty.caocap.Database.mySimpleData2
 import kotlinx.android.synthetic.main.activity_explore.*
 
-class Explore : AppCompatActivity() {
+class Explore : AppCompatActivity(),ExploreAdapter.OnCaocapItemListener {
 
     //lateinit var exploreAdapter: ExploreAdapter
 
@@ -28,5 +29,9 @@ class Explore : AppCompatActivity() {
         recyclerViewExplore.layoutManager = staggered
 
 
+    }
+
+    override fun onItemClick(item: caocap, posotion: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
