@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.Database.myCaoDat
+import com.ficruty.caocap.Database.mySimpleData
 import com.ficruty.caocap.Database.mySimpleData2
 import com.ficruty.caocap.R
 import org.w3c.dom.Text
@@ -33,10 +34,10 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
     override fun onBindViewHolder(holder: ExploreHolder, position: Int) {
 //        holder.caocapImage.setImageResource(resourceId)
 //        holder.caocapText.text = caocap.name
-        val card: caocap = mySimpleData2.cs[position]
+        val card: caocap = mySimpleData.webCao.caocapList[position]
         //val resourceId = context.resources.getIdentifier(card.pic,"drawable",context.packageName)
         holder.myWebView.loadUrl(card.pic)
-        //holder.myText.text = card.name
+        holder.myText.text = card.name
 
 //        holder.caocapText.text = card.name
 //        holder.caocapImage.setImageResource(resourceId)
@@ -50,7 +51,7 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
 //        var caocapImage = itemView.findViewById<ImageView>(R.id.caocapImage)
         //var caocapWeb:String = "adf"
         val myWebView:WebView = itemView.findViewById<WebView>(R.id.caocapPage)
-        //val myText:TextView = itemView.findViewById(R.id.caocapsTextView)
+        val myText:TextView = itemView.findViewById<TextView>(R.id.caocapName)
 
     }
 
