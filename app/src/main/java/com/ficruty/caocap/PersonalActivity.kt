@@ -18,25 +18,25 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
+import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_personal.*
 
 class PersonalActivity : AppCompatActivity() {
 
+        var borderColor=0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
-        getUsername()
-
-
-
-
-
+          checkLogin()
+          getUsername()
 
         personal_menu_button.setOnClickListener(){
             startActivity(Intent(this,MenuActivity::class.java))
         }
     }
+
     //-------------------------------------------------------------------------------------------
     //  Get the username in the Top of the personal layout.
     private fun getUsername(){
@@ -55,19 +55,37 @@ class PersonalActivity : AppCompatActivity() {
                 personal_name_text_view.text=name
                 var bio=user?.bio.toString()
                 personal_bio_text_view.text=bio
-                var imageLink=user?.profileImageLink
-                Picasso.get().load(imageLink).into(personal_profile_image_view)
+                var imageLink=user?.imageURL
+                if(imageLink != null){
+                    Picasso.get().load(imageLink).into(personal_profile_image_view)
+                }
+                borderColor=user?.color.toString().toInt()
+                colorOfBorder(borderColor)
+
+
+
             }
         })
+    }
+
+    //-------------------------------------------------------------------------------------------
+        // Color of border .
+    private fun colorOfBorder(number:Int){
+        when (number) {
+            0 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_red_color)
+            1 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_orange_color)
+            2 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_green_color)
+            3 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_blue_color)
+            4 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_pink_color)
+            5 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_white_color)
+        }
     }
     //-------------------------------------------------------------------------------------------
     // It's a function to check user login .
     fun checkLogin(){
         var uid=Firebase.auth.uid
         if(uid==null){
-            var intent= Intent(this, LoginActivity::class.java)
-            intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
+          finish()
         }
     }
     //-------------------------------------------------------------------------------------------

@@ -20,26 +20,43 @@
             tools:text="username" />
 
 
+    <TextView
+            android:id="@+id/personal_image_border"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/edit_profile_red_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view" />
+
+    <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/personal_profile_image_view"
+            app:layout_constraintEnd_toEndOf="@+id/personal_profile_image_view"
+            app:layout_constraintStart_toStartOf="@+id/personal_profile_image_view"
+            app:layout_constraintTop_toTopOf="@+id/personal_profile_image_view"
+            app:srcCompat="@drawable/edit_profile_image_background" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/personal_profile_image_view"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/astronaut"
-            app:civ_border_width="5dp"
-            android:layout_weight="1"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_weight="1"
+            android:src="@drawable/astronaut"
+
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view"
-            app:civ_border_color="#FF000000"/>
+            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view" />
 
     <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
             android:text="orbiting"
             android:textColor="@android:color/white"
@@ -47,7 +64,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/personal_profile_image_view"
             app:layout_constraintEnd_toStartOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/personal_profile_image_view" />
+            app:layout_constraintStart_toEndOf="@+id/imageView10" />
 
     <TextView
             android:id="@+id/personal_orbiting_number_text_view"
@@ -78,6 +95,7 @@
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:text="friends"
             android:textColor="@android:color/white"
             android:textSize="18sp"

@@ -8,11 +8,11 @@
     <color name="caocapDefaultBackground">#2B3844</color>
     <color name="caocapDarkColor">#2B2B2B</color>
     <color name="caocapButtonColor">#4AA4F8</color>
-    <color name="editProfileRed">#b8150d</color>
-    <color name="editProfileOrange">#bd8320</color>
-    <color name="editProfileGreen">#0aad43</color>
-    <color name="editProfileBlue">#1457b5</color>
-    <color name="editProfilePink">#74409c</color>
-    <color name="editProfileWhite">#dfdfdf</color>
+    <color name="editProfileRed">#FF0000</color>
+    <color name="editProfileOrange">#FFA300</color>
+    <color name="editProfileGreen">#62FF00</color>
+    <color name="editProfileBlue">#00A7FF</color>
+    <color name="editProfilePink">#E200FF</color>
+    <color name="editProfileWhite">#EAEAEA</color>
 
 </resources>

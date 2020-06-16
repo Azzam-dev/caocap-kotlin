@@ -1,9 +1,11 @@
 package com.ficruty.caocap
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -38,14 +40,14 @@ class HomeActivity : AppCompatActivity() {
     }
     private fun checkVersion(){
         // Get the Version from firebase/appData
+        
     }
 
 
-
-     fun checkLogin(){
-        var uid=Firebase.auth.uid
+    private fun checkLogin(){
+        val uid=Firebase.auth.uid
         if(uid==null){
-            var intent= Intent(this,LoginActivity::class.java)
+            val intent= Intent(this,LoginActivity::class.java)
             intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
