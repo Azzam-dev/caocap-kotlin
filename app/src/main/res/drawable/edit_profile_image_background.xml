@@ -3,6 +3,6 @@
         android:shape="oval"
         >
     <size android:width="64dp" android:height="64dp"/>
-    <solid android:color="@color/editProfileWhite"/>
+    <solid android:color="@color/caocapDefaultBackground"/>
     <corners android:radius="32dp"/>
 </shape>

@@ -23,12 +23,52 @@ import kotlinx.android.synthetic.main.activity_edit_profile.*
 class EditProfileActivity : AppCompatActivity() {
 
     var emailOne:String?=""
-
+    var borderColor=-1
+//    var newColorOfBorder:Int?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-        getUsername()
+        getUserData()
+
+
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+            // Buttons of color of border
+        edit_profile_red_border_button.setOnClickListener(){
+            borderColor=0
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+
+        }
+        edit_profile_orange_border_button.setOnClickListener(){
+            borderColor=1
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+        }
+        edit_profile_green_border_button.setOnClickListener(){
+            borderColor=2
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+        }
+        edit_profile_blue_border_button.setOnClickListener(){
+            borderColor=3
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+        }
+        edit_profile_pink_border_button.setOnClickListener(){
+            borderColor=4
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+        }
+        edit_profile_white_border_button.setOnClickListener(){
+            borderColor=5
+            borderColor(borderColor)
+            Log.d("borderColor",borderColor.toString())
+        }
+        //-------------------------------------------------------------------------------------------------------------------
+
 
         edit_profile_save_button.setOnClickListener() {
             uploadUserData()
@@ -51,18 +91,17 @@ class EditProfileActivity : AppCompatActivity() {
             var bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectPhotoUri);
             edit_profile_image_view.setImageBitmap(bitmap)
 
-//            var bitmapDrawable= BitmapDrawable(bitmap)
-//            edit_profile_image_view.setBackgroundDrawable(bitmapDrawable)
+            var bitmapDrawable= BitmapDrawable(bitmap)
+            edit_profile_image_view.setBackgroundDrawable(bitmapDrawable)
 
         }
     }
     //-------------------------------------------------------------------------------------------
     // Get user information from firebase .
 
-    fun getUsername() {
+    fun getUserData() {
         var uid = Firebase.auth.uid.toString()
         var reference = Firebase.database.getReference("users/$uid")
-
         reference.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("Not yet implemented")
@@ -70,6 +109,7 @@ class EditProfileActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 var user = p0.getValue(UserData::class.java)
+
                 var theUsername = user?.username.toString()
                 edit_profile_username_edit_text.setText(theUsername)
                 var name=user?.name.toString()
@@ -81,72 +121,105 @@ class EditProfileActivity : AppCompatActivity() {
                 var email = user?.email.toString()
                 edit_profile_email_edit_text.setText(email)
                 emailOne=email
-                var phone=user?.phone.toString()
+                var phone=user?.phoneNumber.toString()
                 edit_profile_phone_edit_text.setText(phone)
-                var imageLink=user?.profileImageLink
-                Picasso.get().load(imageLink).into(edit_profile_image_view)
+                var imageLink="NoImage"
+                imageLink=user?.imageURL.toString()
+                if(imageLink != "NoImage"){
+                    Picasso.get().load(imageLink).into(edit_profile_image_view)
+                }
+                borderColor=user?.color.toString().toInt()
+                if(borderColor==-1){
+                    borderColor(0)
+                }else{
+                    borderColor(borderColor)
+                }
+
 
             }
 
         })
     }
     //-------------------------------------------------------------------------------------------
-
-    // Upload user data to database .
-    private fun uploadUserData() {
-        var uid = Firebase.auth.uid
-        var reference = Firebase.database.getReference("users/$uid")
-
-        var username = edit_profile_username_edit_text.text.toString()
-        var name = edit_profile_name_edit_text.text.toString()
-        var bio = edit_profile_bio_edit_text.text.toString()
-        var website = edit_profile_website_edit_text.text.toString()
-        var email = edit_profile_email_edit_text.text.toString()
-        var phone = edit_profile_phone_edit_text.text.toString()
-
-        // Check username and email are empty or not .
-        if(username.isEmpty() && email.isEmpty()){
-            Toast.makeText(this,"You must fill username and email. ",Toast.LENGTH_SHORT).show()
-            return
-        }else if(username.isEmpty()){
-            Toast.makeText(this,"You must fill username. ",Toast.LENGTH_SHORT).show()
-            return
-        }else if(email.isEmpty()){
-            Toast.makeText(this,"You must fill username. ",Toast.LENGTH_SHORT).show()
-            return
+        // Change color of border when press the button
+    private fun borderColor(number:Int){
+        when (number) {
+            0 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_red_color)
+            1 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_orange_color)
+            2 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_green_color)
+            3 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_blue_color)
+            4 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_pink_color)
+            5 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_white_color)
         }
-
-        if(email != emailOne){
-            Toast.makeText(this,"Sorry, you can not change your email in this version of app. ",Toast.LENGTH_SHORT).show()
-            return
-        }
-        // Check length of username .
-        if(username.length<4){
-            Toast.makeText(this,"The username must be 4 characters or more. ",Toast.LENGTH_SHORT).show()
-            return
-        }else{
-            reference.child("username").setValue(username)
-        }
-
-        reference.child("email").setValue(email)
-
-        if (name.isNotEmpty()){
-            reference.child("name").setValue(name)
-        }
-        if (bio.isNotEmpty()){
-            reference.child("bio").setValue(bio)
-        }
-        if (website.isNotEmpty()){
-            reference.child("website").setValue(website)
-        }
-        if (phone.isNotEmpty()){
-            reference.child("phone").setValue(phone)
-        }
-        Toast.makeText(this,"Your information Update Successfully",Toast.LENGTH_SHORT).show()
     }
+
     //-------------------------------------------------------------------------------------------
-    // Upload an image to firebase storage and put the URL in the database realtime .
-    private fun uploadeProfileImage(){
+
+// Upload user data to database .
+private fun uploadUserData() {
+    var uid = Firebase.auth.uid
+    var reference = Firebase.database.getReference("users/$uid")
+
+    var username = edit_profile_username_edit_text.text.toString()
+    var name = edit_profile_name_edit_text.text.toString()
+    var bio = edit_profile_bio_edit_text.text.toString()
+    var website = edit_profile_website_edit_text.text.toString()
+    var email = edit_profile_email_edit_text.text.toString()
+    var phone = edit_profile_phone_edit_text.text.toString()
+
+    // Check username and email are empty or not .
+    if(username.isEmpty() && email.isEmpty()){
+        Toast.makeText(this,"You must fill username and email. ",Toast.LENGTH_SHORT).show()
+        return
+    }else if(username.isEmpty()){
+        Toast.makeText(this,"You must fill username. ",Toast.LENGTH_SHORT).show()
+        return
+    }else if(email.isEmpty()){
+        Toast.makeText(this,"You must fill username. ",Toast.LENGTH_SHORT).show()
+        return
+    }
+
+    if(email != emailOne){
+        Toast.makeText(this,"Sorry, you can not change your email in this version of app. ",Toast.LENGTH_SHORT).show()
+        return
+    }
+    // Check length of username .
+    if(username.length<4){
+        Toast.makeText(this,"The username must be 4 characters or more. ",Toast.LENGTH_SHORT).show()
+        return
+    }else{
+        reference.child("username").setValue(username)
+    }
+
+    reference.child("email").setValue(email)
+
+    if (name.isNotEmpty()){
+        reference.child("name").setValue(name)
+    }
+    if (bio.isNotEmpty()){
+        reference.child("bio").setValue(bio)
+    }
+    if (website.isNotEmpty()){
+        reference.child("website").setValue(website)
+    }
+    if (phone.isNotEmpty()){
+        reference.child("phoneNumber").setValue(phone)
+    }
+
+    //Upload color of border
+    if(borderColor != -1){
+        reference.child("color").setValue(borderColor)
+    }
+
+
+
+
+    Toast.makeText(this,"Your information Update Successfully",Toast.LENGTH_SHORT).show()
+}
+//-------------------------------------------------------------------------------------------
+// Upload an image to firebase storage and put the URL in the database realtime .
+private fun uploadeProfileImage(){
+    if(selectPhotoUri != null){
         var uid=Firebase.auth.uid.toString()
         var reference=Firebase.storage.reference
         var imageReference=reference.child("profile-images/$uid")
@@ -155,8 +228,9 @@ class EditProfileActivity : AppCompatActivity() {
                 var imageLink=it.toString()
                 Log.d("TaTana",imageLink)
                 var userReference=Firebase.database.getReference("users/$uid")
-                userReference.child("profileImageLink").setValue(imageLink)
+                userReference.child("imageURL").setValue(imageLink)
             }
         }
     }
+}
 }
