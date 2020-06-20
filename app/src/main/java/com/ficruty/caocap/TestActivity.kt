@@ -14,7 +14,7 @@ class TestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         var url="https://firebasestorage.googleapis.com/v0/b/caocap-x.appspot.com/o/profile-images%2FOBW84dAO1gdme67YhMAWBKEBebU2?alt=media&token=0d812e93-cf0f-44a4-af5f-8a18ac479a14"
-        Picasso.get().load(url).into(profile_image)
+        Picasso.get().load(url).into(chat_card_image_view)
 
         var provider=Firebase.auth.currentUser?.providerId
         test_text_view.text=provider.toString()
