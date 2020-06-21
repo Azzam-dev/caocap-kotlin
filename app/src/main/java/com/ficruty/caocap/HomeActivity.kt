@@ -36,6 +36,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this,PersonalActivity::class.java))
         }
 
+        home_acitivity_chat_btn.setOnClickListener(){
+            startActivity(Intent(this,ChatActivity::class.java))
+        }
+
 
     }
     private fun checkVersion(){

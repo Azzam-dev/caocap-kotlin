@@ -47,16 +47,11 @@ class RegisterationActivity : AppCompatActivity() {
                         Toast.makeText(this,"${it.message}",Toast.LENGTH_SHORT).show()
                     }
                 }
-
             }
-
-
-
-        }
+                    }
 
         registration_sign_in_button.setOnClickListener(){
             startActivity(Intent(this,LoginActivity::class.java))
         }
-
     }
 }
