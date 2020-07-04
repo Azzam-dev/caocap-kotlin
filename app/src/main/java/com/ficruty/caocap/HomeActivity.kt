@@ -37,8 +37,14 @@ class HomeActivity : AppCompatActivity() {
         }
 
         home_acitivity_chat_btn.setOnClickListener(){
-            startActivity(Intent(this,ChatActivity::class.java))
+            startActivity(Intent(this,ChatLogActivity::class.java))
         }
+
+        home_acitivity_explore_button.setOnClickListener(){
+            startActivity(Intent(this,Explore::class.java))
+        }
+
+
 
 
     }
