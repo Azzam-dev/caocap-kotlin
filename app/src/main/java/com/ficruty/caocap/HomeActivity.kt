@@ -40,6 +40,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(Intent(this,ChatLogActivity::class.java))
         }
 
+        home_acitivity_explore_button.setOnClickListener(){
+            startActivity(Intent(this,Explore::class.java))
+        }
+
 
 
 
