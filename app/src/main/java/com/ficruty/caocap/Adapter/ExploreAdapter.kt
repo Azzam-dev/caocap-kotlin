@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.size
 import androidx.recyclerview.widget.RecyclerView
 import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.Database.myCaoDat
@@ -39,6 +40,7 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
         holder.myWebView.loadUrl(card.pic)
         holder.myText.text = card.name
 
+
 //        holder.caocapText.text = card.name
 //        holder.caocapImage.setImageResource(resourceId)
 //        val card: webCaocaps = webCao.caocapList[position]
@@ -52,6 +54,7 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
         //var caocapWeb:String = "adf"
         val myWebView:WebView = itemView.findViewById<WebView>(R.id.caocapPage)
         val myText:TextView = itemView.findViewById<TextView>(R.id.caocapName)
+
 
         fun initialize(item:caocap, action:OnCaocapItemListener){
 

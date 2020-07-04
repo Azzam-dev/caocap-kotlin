@@ -3,32 +3,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-    <WebView
-            android:background="@drawable/rounded_caocaps"
-            android:id="@+id/caocapPage"
-            android:layout_width="190dp"
-            android:layout_height="400dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
-
-    </WebView>
 
     <TextView
-            android:background="@drawable/rounded_caocaps"
             android:id="@+id/caocapName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_caocaps"
             android:text="@string/caocapName"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="10sp"
@@ -40,5 +23,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="left" />
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="40dp" >
+
+        <WebView
+                android:id="@+id/caocapPage"
+                android:layout_width="190dp"
+                android:layout_height="400dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_caocaps"
+                android:elevation="0dp">
+
+        </WebView>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
