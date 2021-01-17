@@ -1,4 +1,3 @@
 package com.ficruty.caocap.Models
 
-class Message {
-}
+class Message{}

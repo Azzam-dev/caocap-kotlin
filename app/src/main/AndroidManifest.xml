@@ -9,9 +9,10 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ChatLogActivity"></activity>
+        <activity android:name=".CaocapShowActivity"></activity>
+        <activity android:name=".ChatLogActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".Explore"></activity>
+        <activity android:name=".Explore" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".Menu_Activity" />
         <activity android:name=".PersonalActivity" />
