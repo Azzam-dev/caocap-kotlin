@@ -45,74 +45,74 @@ class Explore : AppCompatActivity() {
 //        adapter.add(CaocapShow("dorob","https://dorob.com"))
 //        explore_one_recycler_view.adapter=adapter;
 
-        Firebase.database.getReference("caocap").addChildEventListener(object:ChildEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onChildChanged(p0: DataSnapshot, p1: String?){
-                val caocap=p0.getValue(Caocap::class.java);
-                if(caocap != null){
-                    if(caocap.type=="link"){
-                        adapter.add(CaocapShow(caocap));
-                    }
-                }
-                explore_one_recycler_view.adapter=adapter;
-            }
-
-            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                val caocap=p0.getValue(Caocap::class.java);
-                if(caocap != null){
-                    if(caocap.type=="link"){
-                        adapter.add(CaocapShow(caocap));
-                    }
-                }
-                explore_one_recycler_view.adapter=adapter;
-                adapter.setOnItemClickListener(){item, view ->
-                  val intent=Intent(view.context, CaocapShowActivity::class.java);
-                  val intenty=item as CaocapShow
-                  startActivity(intent);
-                }
-            }
-
-            override fun onChildRemoved(p0: DataSnapshot) {
-                TODO("Not yet implemented")
-            }
-
-        })
-
-//        Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object: ValueEventListener{
+//        Firebase.database.getReference("caocap").addChildEventListener(object:ChildEventListener{
 //            override fun onCancelled(p0: DatabaseError) {
 //                TODO("Not yet implemented")
 //            }
 //
-//            override fun onDataChange(p0: DataSnapshot) {
-//                    p0.children.forEach(){
-//                        val caocap=it.getValue(Caocap::class.java);
-//                        if(caocap != null){
-//                            if(caocap.type=="link"){
-//                                adapter.add(CaocapShow(caocap));
-//                                explore_one_recycler_view.adapter=adapter;
-//                            }
-//                        }
+//            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onChildChanged(p0: DataSnapshot, p1: String?){
+//                val caocap=p0.getValue(Caocap::class.java);
+//                if(caocap != null){
+//                    if(caocap.type=="link"){
+//                        adapter.add(CaocapShow(caocap));
 //                    }
+//                }
+//                explore_one_recycler_view.adapter=adapter;
+//            }
 //
-////                        adapter.setOnItemClickListener(){item, view ->
-////                            val intent= Intent(view.context,CaocapShowActivity::class.java)
-////                            val intenty= item as CaocapShow;
-//////                            intent.putExtra("caocap_intent_push",intenty.caocap);
-////                            startActivity(intent);
-////                        }
+//            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+//                val caocap=p0.getValue(Caocap::class.java);
+//                if(caocap != null){
+//                    if(caocap.type=="link"){
+//                        adapter.add(CaocapShow(caocap));
+//                    }
+//                }
+//                explore_one_recycler_view.adapter=adapter;
+//                adapter.setOnItemClickListener(){item, view ->
+//                  val intent=Intent(view.context, PersonalActivity::class.java);
+//                  val intenty=item as CaocapShow
+//                  intent.putExtra("onetwo",intenty.caocap);
+//                  startActivity(intent);
+//                }
+//            }
 //
+//            override fun onChildRemoved(p0: DataSnapshot) {
+//                TODO("Not yet implemented")
 //            }
 //
 //        })
-//
-//
+
+        Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                    p0.children.forEach(){
+                        val caocap=it.getValue(Caocap::class.java);
+                        if(caocap != null){
+                            if(caocap.type=="link"){
+                                adapter.add(CaocapShow(caocap));
+                            }
+                        }
+                    }
+                         explore_one_recycler_view.adapter=adapter;
+                        adapter.setOnItemClickListener(){item, view ->
+                            val intent= Intent(view.context,PersonalActivity::class.java)
+                            val intenty= item as CaocapShow;
+//                            intent.putExtra("caocap_intent_push",intenty.caocap);
+                            startActivity(intent);
+                        }
+
+            }
+
+        })
+
+
     }
 
 
@@ -125,7 +125,7 @@ class Explore : AppCompatActivity() {
             viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
             viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link)
             var height = arrayOf(700, 900, 1000).random()
-            viewHolder.itemView.simple_item_card_view.layoutParams.height=height
+            viewHolder.itemView.simple_item_container_layout.layoutParams.height=height
         }
     }
 

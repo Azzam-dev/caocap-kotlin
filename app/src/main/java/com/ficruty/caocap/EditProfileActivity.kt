@@ -24,7 +24,7 @@ class EditProfileActivity : AppCompatActivity() {
 
     var emailOne:String?=""
     var borderColor=-1
-//    var newColorOfBorder:Int?=null
+    var newColorOfBorder:Int?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)

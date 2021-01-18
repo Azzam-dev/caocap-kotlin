@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.LoginSignup.LoginActivity
+import com.ficruty.caocap.Models.Caocap
 import com.ficruty.caocap.Models.UserData
 import com.ficruty.caocap.Models.Users
 import com.google.firebase.auth.ktx.auth
@@ -18,23 +21,49 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Item
+import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_personal.*
+import kotlinx.android.synthetic.main.simple_item.view.*
 
 class PersonalActivity : AppCompatActivity() {
 
         var borderColor=0
-
+        var adapter=GroupAdapter<ViewHolder>();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
           checkLogin()
           getUsername()
+           personal_my_caoaps_recycler_view.layoutManager=StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
 
         personal_menu_button.setOnClickListener(){
             startActivity(Intent(this,MenuActivity::class.java))
         }
+
+
+        // Just for test
+        Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                p0.children.forEach(){
+                    val c=it.getValue(Caocap::class.java);
+                    if(c!=null){
+                        if(c.type=="link"){
+                            adapter.add(PersonalCaoCapShow(c));
+                        }
+                    }
+                }
+                personal_my_caoaps_recycler_view.adapter=adapter;
+            }
+
+        })
     }
 
     //-------------------------------------------------------------------------------------------
@@ -90,5 +119,17 @@ class PersonalActivity : AppCompatActivity() {
     }
     //-------------------------------------------------------------------------------------------
         // Get the user image from file storage.
+
+}
+
+class PersonalCaoCapShow(var caocap:Caocap): Item<ViewHolder>(){
+    override fun getLayout(): Int {
+        return R.layout.simple_item
+    }
+    override fun bind(viewHolder: ViewHolder, position: Int) {
+        viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
+        viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
+//        viewHolder.itemView.simple_item_card_view.layoutParams.height=400;
+    }
 
 }
