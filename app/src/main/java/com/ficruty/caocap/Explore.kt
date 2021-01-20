@@ -3,7 +3,10 @@ package com.ficruty.caocap
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.ficruty.caocap.Adapter.CaocapAdapter
+//import com.ficruty.caocap.Adapter.CaocapAdapter
 import com.ficruty.caocap.Adapter.ExploreAdapter
 import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.Database.mySimpleData
@@ -96,15 +99,15 @@ class Explore : AppCompatActivity() {
                         val caocap=it.getValue(Caocap::class.java);
                         if(caocap != null){
                             if(caocap.type=="link"){
-                                adapter.add(CaocapShow(caocap));
+                                adapter.add(CaocapAdapter(caocap));
                             }
                         }
                     }
                          explore_one_recycler_view.adapter=adapter;
                         adapter.setOnItemClickListener(){item, view ->
-                            val intent= Intent(view.context,PersonalActivity::class.java)
-                            val intenty= item as CaocapShow;
-//                            intent.putExtra("caocap_intent_push",intenty.caocap);
+                            val intent= Intent(view.context,CaocapShowActivity::class.java)
+                            val intenty= item as CaocapAdapter;
+                            intent.putExtra("caocap_intent_push",intenty.caocap);
                             startActivity(intent);
                         }
 
@@ -116,18 +119,7 @@ class Explore : AppCompatActivity() {
     }
 
 
-    class CaocapShow(var caocap:Caocap):Item<ViewHolder>(){
-        override fun getLayout(): Int {
-            return R.layout.simple_item;
-        }
 
-        override fun bind(viewHolder: ViewHolder, position: Int) {
-            viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
-            viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link)
-            var height = arrayOf(700, 900, 1000).random()
-            viewHolder.itemView.simple_item_container_layout.layoutParams.height=height
-        }
-    }
 
 ////        adapter.add(Caocap("Google","https://www.google.com.sa"))
 ////        adapter.add(Caocap("Twitter","https://www.twitter.com"))

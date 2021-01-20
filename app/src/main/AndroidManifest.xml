@@ -9,7 +9,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".CaocapShowActivity"></activity>
+        <activity android:name=".Buliders.BuilderLinkActivity"></activity>
+        <activity android:name=".CaocapShowActivity" />
         <activity android:name=".ChatLogActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".Explore" />

@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.ficruty.caocap.Adapter.CaocapAdapterPersonal
+import com.ficruty.caocap.Buliders.BuilderLinkActivity
 import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.ficruty.caocap.Models.Caocap
@@ -33,6 +35,8 @@ class PersonalActivity : AppCompatActivity() {
 
         var borderColor=0
         var adapter=GroupAdapter<ViewHolder>();
+        var uid=Firebase.auth.uid.toString();
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
@@ -44,9 +48,35 @@ class PersonalActivity : AppCompatActivity() {
             startActivity(Intent(this,MenuActivity::class.java))
         }
 
+        personal_create_caocap_button.setOnClickListener(){
+            startActivity(Intent(this,BuilderLinkActivity::class.java))
+        }
+
 
         // Just for test
-        Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:ValueEventListener{
+        getMyCaocaps()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        getMyCaocaps()
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        getMyCaocaps()
+//    }
+
+//    override fun onStart() {
+//        super.onStart()
+//        getMyCaocaps()
+//    }
+
+    //-------------------------------------------------------------------------------------------
+    //  Get the username in the Top of the personal layout.
+
+    private fun getMyCaocaps(){
+        Firebase.database.getReference("caocap").orderByChild("owners/0").equalTo(uid).addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("Not yet implemented")
             }
@@ -56,18 +86,15 @@ class PersonalActivity : AppCompatActivity() {
                     val c=it.getValue(Caocap::class.java);
                     if(c!=null){
                         if(c.type=="link"){
-                            adapter.add(PersonalCaoCapShow(c));
+                            adapter.add(CaocapAdapterPersonal(c));
                         }
                     }
                 }
                 personal_my_caoaps_recycler_view.adapter=adapter;
             }
-
         })
     }
 
-    //-------------------------------------------------------------------------------------------
-    //  Get the username in the Top of the personal layout.
     private fun getUsername(){
         val uid=Firebase.auth.uid
         val reference=Firebase.database.getReference("users/$uid")
@@ -122,14 +149,3 @@ class PersonalActivity : AppCompatActivity() {
 
 }
 
-class PersonalCaoCapShow(var caocap:Caocap): Item<ViewHolder>(){
-    override fun getLayout(): Int {
-        return R.layout.simple_item
-    }
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
-        viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
-//        viewHolder.itemView.simple_item_card_view.layoutParams.height=400;
-    }
-
-}
