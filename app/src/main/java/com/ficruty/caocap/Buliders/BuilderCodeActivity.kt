@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_builder_code.*
 
 class BuilderCodeActivity : AppCompatActivity() {
 
-    var html="<h1>hola</h1>"
+    var html=""
     var css=""
     var js=""
 

@@ -14,16 +14,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline17">
 
-        <Button
-                android:id="@+id/builder_link_select_caocap_image_button"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@drawable/edit_profile_caocap_dark_color"
-                app:layout_constraintBottom_toBottomOf="@+id/builder_image_view"
-                app:layout_constraintEnd_toEndOf="@+id/builder_image_view"
-                app:layout_constraintStart_toStartOf="@+id/builder_image_view"
-                app:layout_constraintTop_toTopOf="@+id/builder_image_view" />
-
         <TextView
                 android:id="@+id/builder_image_border"
                 android:layout_width="105dp"
@@ -34,6 +24,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@drawable/edit_profile_green_color" />
+
+        <ImageView
+                android:id="@+id/builder_link_select_caocap_image_button"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/edit_profile_caocap_dark_color"
+                app:layout_constraintBottom_toBottomOf="@+id/builder_image_view"
+                app:layout_constraintEnd_toEndOf="@+id/builder_image_view"
+                app:layout_constraintStart_toStartOf="@+id/builder_image_view"
+                app:layout_constraintTop_toTopOf="@+id/builder_image_view" />
 
         <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/builder_image_view"
@@ -129,19 +129,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <EditText
-                android:id="@+id/builder_link_coacap_link_edit_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:hint="caocap link"
-                android:inputType="textPersonName"
-                android:text="https://"
-                app:layout_constraintEnd_toEndOf="@+id/builder_link_coacap_name_edit_text"
-                app:layout_constraintStart_toStartOf="@+id/builder_link_coacap_name_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/builder_link_coacap_name_edit_text" />
-
-        <EditText
                 android:id="@+id/builder_link_coacap_name_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -154,6 +141,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+        <EditText
+                android:id="@+id/builder_link_coacap_link_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:hint="caocap link"
+                android:inputType="textPersonName"
+                android:text="https://"
+                app:layout_constraintEnd_toEndOf="@+id/builder_link_coacap_name_edit_text"
+                app:layout_constraintStart_toStartOf="@+id/builder_link_coacap_name_edit_text"
+                app:layout_constraintTop_toBottomOf="@+id/builder_link_coacap_name_edit_text" />
 
         <TextView
                 android:id="@+id/builder_link_create_button"

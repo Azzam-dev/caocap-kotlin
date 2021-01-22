@@ -15,7 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_builder_link.*
-import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.activity_edit_personal.*
 
 class BuilderLinkActivity : AppCompatActivity() {
     var selectImageUri: Uri? = null;
@@ -62,7 +62,9 @@ class BuilderLinkActivity : AppCompatActivity() {
 
             var caocapKey=Firebase.database.getReference("caocap").push().key.toString()
 
-                Firebase.database.getReference("caocap/$caocapKey").setValue(CaocapLink(caocapName,caocapLink,"link",caocapColor,"imageURL",true)).addOnSuccessListener {
+                var pushCaocapMap=mapOf<Any,Any>("name" to caocapName, "link" to caocapLink, "type" to "link", "color" to caocapColor, "imageURL" to "https://", "published" to true, "owners" to mapOf<Int,String>(0 to uid))
+
+                Firebase.database.getReference("caocap/$caocapKey").setValue(CaocapLink(caocapName,caocapLink,"link",caocapColor,"https://",true)).addOnSuccessListener {
 //                        Firebase.database.getReference("caocap/$caocapKey/owners").setValue()
                           finish()
                                         }.addOnFailureListener {
@@ -85,22 +87,24 @@ class BuilderLinkActivity : AppCompatActivity() {
         }
 
 
-        builder_link_select_caocap_image_button.setOnClickListener(){
+        builder_image_view.setOnClickListener(){
             var photoIntent = Intent(Intent.ACTION_PICK);
             photoIntent.type = "image/*"
             startActivityForResult(photoIntent, 0)
         }
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+        if(requestCode==0 && resultCode== Activity.RESULT_OK && data != null){
 
-            selectImageUri = data.data
-            var bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectImageUri);
-            var bitmapDrawable = BitmapDrawable(bitmap)
-            builder_link_select_caocap_image_button.setBackgroundDrawable(
-                bitmapDrawable
-            )
+            selectImageUri =data.data
+            var bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectImageUri);
+            builder_image_view.setImageBitmap(bitmap)
+
+            var bitmapDrawable= BitmapDrawable(bitmap)
+            builder_image_view.setBackgroundDrawable(bitmapDrawable)
+
         }
     }
 }

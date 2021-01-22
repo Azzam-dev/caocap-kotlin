@@ -40,9 +40,9 @@ class PersonalActivity : AppCompatActivity() {
             startActivity(Intent(this,MenuActivity::class.java))
         }
 
-        personal_create_caocap_link_button.setOnClickListener(){
+        personal_create_caocap_button.setOnClickListener(){
             val dialogView=LayoutInflater.from(this).inflate(R.layout.builder_choose_menu,null);
-            val mBuilder=AlertDialog.Builder(this).setView(dialogView).setTitle("Choose builder")
+            val mBuilder=AlertDialog.Builder(this).setView(dialogView)
             var alertDialog=mBuilder.show()
 
             dialogView.builder_choose_menu_link_button.setOnClickListener(){

@@ -19,10 +19,10 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         menu_acitivity_edit_profile_image_view.setOnClickListener(){
-            startActivity(Intent(this,EditProfileActivity::class.java))
+            startActivity(Intent(this,EditPersonalActivity::class.java))
         }
         menu_activity_edit_profile_text_view.setOnClickListener(){
-            startActivity(Intent(this,EditProfileActivity::class.java))
+            startActivity(Intent(this,EditPersonalActivity::class.java))
         }
         menu_activity_settings_image_view.setOnClickListener(){
             startActivity(Intent(this,SettingActivity::class.java))
