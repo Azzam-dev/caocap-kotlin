@@ -17,9 +17,6 @@ class ExploreAdapter(val context:Context,val caoData:List<caocap>): RecyclerView
 
 
 
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.simple_item,parent,false)
         return ExploreHolder(view)

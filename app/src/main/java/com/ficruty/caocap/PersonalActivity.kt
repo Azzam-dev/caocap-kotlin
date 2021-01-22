@@ -1,35 +1,27 @@
 package com.ficruty.caocap
 
 import android.content.Intent
-import android.icu.util.Freezable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ficruty.caocap.Adapter.CaocapAdapterPersonal
+import com.ficruty.caocap.Buliders.BuilderCodeActivity
 import com.ficruty.caocap.Buliders.BuilderLinkActivity
-import com.ficruty.caocap.Database.caocap
-import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.ficruty.caocap.Models.Caocap
 import com.ficruty.caocap.Models.UserData
-import com.ficruty.caocap.Models.Users
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
-import com.squareup.picasso.RequestCreator
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_personal.*
-import kotlinx.android.synthetic.main.simple_item.view.*
+import kotlinx.android.synthetic.main.builder_choose_menu.view.*
 
 class PersonalActivity : AppCompatActivity() {
 
@@ -48,11 +40,21 @@ class PersonalActivity : AppCompatActivity() {
             startActivity(Intent(this,MenuActivity::class.java))
         }
 
-        personal_create_caocap_button.setOnClickListener(){
-            startActivity(Intent(this,BuilderLinkActivity::class.java))
+        personal_create_caocap_link_button.setOnClickListener(){
+            val dialogView=LayoutInflater.from(this).inflate(R.layout.builder_choose_menu,null);
+            val mBuilder=AlertDialog.Builder(this).setView(dialogView).setTitle("Choose builder")
+            var alertDialog=mBuilder.show()
+
+            dialogView.builder_choose_menu_link_button.setOnClickListener(){
+                startActivity(Intent(this, BuilderLinkActivity::class.java))
+            }
+            dialogView.builder_choose_menu_code_button.setOnClickListener(){
+                startActivity(Intent(this, BuilderCodeActivity::class.java))
+            }
+            dialogView.builder_choose_menu_cancel_button.setOnClickListener(){
+                alertDialog.dismiss()
+            }
         }
-
-
         // Just for test
         getMyCaocaps()
     }

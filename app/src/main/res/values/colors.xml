@@ -14,5 +14,6 @@
     <color name="editProfileBlue">#00A7FF</color>
     <color name="editProfilePink">#E200FF</color>
     <color name="editProfileWhite">#EAEAEA</color>
+    <color name="black">#000000</color>
 
 </resources>

@@ -16,7 +16,7 @@ class CaocapShowActivity : AppCompatActivity() {
         var caocapLink=intent.getParcelableExtra<Caocap>("caocap_intent")?.link.toString();
         caocap_show_caocap_web_view.loadUrl(caocapLink)
         caocap_show_activity_caocap_name_text_view.setText(intent.getParcelableExtra<Caocap>("caocap_intent")?.link)
-        caocap_show_activity_add_to_orrbit.setOnClickListener(){
+        caocap_show_activity_add_to_orrbit_button.setOnClickListener(){
             Firebase.database.getReference("users/$uid/orbiting").child(caocapLink).setValue(caocapLink)
         }
     }
