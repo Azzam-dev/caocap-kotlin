@@ -38,6 +38,10 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        login_reset_password_button.setOnClickListener(){
+            startActivity(Intent(this,ResetPasswordActivity::class.java))
+        }
+
         login_sign_up_button.setOnClickListener(){
             startActivity(Intent(this,RegisterationActivity::class.java))
         }

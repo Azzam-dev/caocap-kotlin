@@ -61,11 +61,9 @@ class BuilderLinkActivity : AppCompatActivity() {
             var caocapName=builder_link_coacap_name_edit_text.text.toString()
             var caocapLink=builder_link_coacap_link_edit_text.text.toString()
             if(caocapName.isNotEmpty() &&caocapLink.isNotEmpty()){
-                if(caocapLink.contains("http://",ignoreCase = true)==true || caocapLink.contains("https://",ignoreCase = true)==true) {
+                if(caocapLink.substring(0,7).contains("http://",ignoreCase = true)==true || caocapLink.substring(0,8).contains("https://",ignoreCase = true)==true) {
                     if(Patterns.WEB_URL.matcher(caocapLink).matches()){
                     var caocapKey = Firebase.database.getReference("caocap").push().key.toString()
-
-                        // This is push code to database.
 
 //                    var pushCaocapMap = mapOf<Any, Any>(
 //                        "name" to caocapName,
@@ -76,22 +74,22 @@ class BuilderLinkActivity : AppCompatActivity() {
 //                        "published" to true,
 //                        "owners" to mapOf<Int, String>(0 to uid)
 //                    )
-//
-//                    Firebase.database.getReference("caocap/$caocapKey").setValue(
-//                        CaocapLink(
-//                            caocapName,
-//                            caocapLink,
-//                            "link",
-//                            caocapColor,
-//                            "https://",
-//                            true
-//                        )
-//                    ).addOnSuccessListener {
-////                        Firebase.database.getReference("caocap/$caocapKey/owners").setValue()
-//                        finish()
-//                    }.addOnFailureListener {
-//                        Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
-//                    }
+
+                    Firebase.database.getReference("caocap/$caocapKey").setValue(
+                        CaocapLink(
+                            caocapName,
+                            caocapLink,
+                            "link",
+                            caocapColor,
+                            "https://",
+                            true
+                        )
+                    ).addOnSuccessListener {
+//                        Firebase.database.getReference("caocap/$caocapKey/owners").setValue()
+                        finish()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+                    }
 
                     Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
                     }else{
