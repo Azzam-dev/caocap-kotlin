@@ -21,16 +21,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-            android:id="@+id/home_signout_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="sign out"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_uid_view" />
-
     <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
@@ -50,32 +40,23 @@
             app:layout_constraintGuide_percent="0.56" />
 
     <Button
-            android:id="@+id/home_goto_personal_acitivity"
+            android:id="@+id/home_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="personal"
+            android:layout_marginTop="32dp"
+            android:text="start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_signout_button" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-    <Button
-            android:id="@+id/home_acitivity_chat_btn"
+    <TextView
+            android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="chat"
+            android:layout_marginTop="32dp"
+            android:text="Press for explore, long for profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_goto_personal_acitivity" />
+            app:layout_constraintTop_toBottomOf="@+id/home_button" />
 
-    <Button
-            android:id="@+id/home_acitivity_explore_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Explore"
-            app:layout_constraintEnd_toEndOf="@+id/home_acitivity_chat_btn"
-            app:layout_constraintStart_toStartOf="@+id/home_acitivity_chat_btn"
-            app:layout_constraintTop_toBottomOf="@+id/home_acitivity_chat_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

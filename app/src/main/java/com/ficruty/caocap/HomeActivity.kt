@@ -25,23 +25,13 @@ class HomeActivity : AppCompatActivity() {
         var uid= Firebase.auth.uid.toString()
         home_uid_view.text=uid
 
-        home_signout_button.setOnClickListener(){
-            var auth=Firebase.auth
-            auth.signOut()
-            checkLogin()
-
-        }
-
-        home_goto_personal_acitivity.setOnClickListener(){
-            startActivity(Intent(this,PersonalActivity::class.java))
-        }
-
-        home_acitivity_chat_btn.setOnClickListener(){
-            startActivity(Intent(this,ChatLogActivity::class.java))
-        }
-
-        home_acitivity_explore_button.setOnClickListener(){
+        home_button.setOnClickListener(){
             startActivity(Intent(this,Explore::class.java))
+        }
+
+        home_button.setOnLongClickListener(){
+            startActivity(Intent(this,PersonalActivity::class.java))
+            true
         }
 
 

@@ -25,10 +25,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this,EditPersonalActivity::class.java))
         }
         menu_activity_settings_image_view.setOnClickListener(){
-            startActivity(Intent(this,SettingActivity::class.java))
+            // Not yet
         }
         menu_activity_settings_text_view.setOnClickListener(){
-            startActivity(Intent(this,SettingActivity::class.java))
+            // Not yet
         }
         menu_activity_logout_text_view.setOnClickListener(){
             logoutButton()

@@ -59,10 +59,10 @@ class PersonalActivity : AppCompatActivity() {
         getMyCaocaps()
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        getMyCaocaps()
-    }
+//    override fun onRestart() {
+//        super.onRestart()
+//        getMyCaocaps()
+//    }
 
 //    override fun onResume() {
 //        super.onResume()
