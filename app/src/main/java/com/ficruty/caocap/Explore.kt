@@ -34,61 +34,18 @@ class Explore : AppCompatActivity() {
         setContentView(R.layout.activity_explore)
 
 
+        explore_activity_caocap_button.setOnClickListener(){
+            finish()
+        }
+
+        explore_activity_caocap_button.setOnLongClickListener(){
+            // Not yet
+            true
+        }
+
         explore_one_recycler_view.layoutManager=StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
 
-//        explore_one_recycler_view.adapter = ExploreAdapter(this, mySimpleData.webCao.caocapList)
-//        var staggered: StaggeredGridLayoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-//        explore_one_recycler_view.layoutManager = staggered
 
-//        adapter.add(CaocapShow("Google","https"))
-//        adapter.add(CaocapShow("Google","https://www.google.com.sa"))
-//        adapter.add(CaocapShow("Twitter","https://www.twitter.com"))
-//        adapter.add(CaocapShow("Caocap","https://www.caocap.app"))
-//        adapter.add(CaocapShow("Benq","https://www.benq.com"))
-//        adapter.add(CaocapShow("Absher","https://www.absher.sa"))
-//        adapter.add(CaocapShow("dorob","https://dorob.com"))
-//        explore_one_recycler_view.adapter=adapter;
-
-//        Firebase.database.getReference("caocap").addChildEventListener(object:ChildEventListener{
-//            override fun onCancelled(p0: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onChildChanged(p0: DataSnapshot, p1: String?){
-//                val caocap=p0.getValue(Caocap::class.java);
-//                if(caocap != null){
-//                    if(caocap.type=="link"){
-//                        adapter.add(CaocapShow(caocap));
-//                    }
-//                }
-//                explore_one_recycler_view.adapter=adapter;
-//            }
-//
-//            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-//                val caocap=p0.getValue(Caocap::class.java);
-//                if(caocap != null){
-//                    if(caocap.type=="link"){
-//                        adapter.add(CaocapShow(caocap));
-//                    }
-//                }
-//                explore_one_recycler_view.adapter=adapter;
-//                adapter.setOnItemClickListener(){item, view ->
-//                  val intent=Intent(view.context, PersonalActivity::class.java);
-//                  val intenty=item as CaocapShow
-//                  intent.putExtra("onetwo",intenty.caocap);
-//                  startActivity(intent);
-//                }
-//            }
-//
-//            override fun onChildRemoved(p0: DataSnapshot) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
 
         Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {

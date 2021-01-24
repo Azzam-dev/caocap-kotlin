@@ -27,6 +27,7 @@ class CaocapShowActivity : AppCompatActivity() {
         caocap_show_caocap_web_view.loadUrl(intent.getParcelableExtra<Caocap>(caocapIntent)!!.link)
 
         var adapter=GroupAdapter<ViewHolder>()
+
         caocap_show_activity_recycler_view.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:ValueEventListener{

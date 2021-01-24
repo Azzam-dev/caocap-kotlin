@@ -3,6 +3,7 @@ package com.ficruty.caocap
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -35,6 +36,16 @@ class PersonalActivity : AppCompatActivity() {
           checkLogin()
           getUsername()
            personal_my_caoaps_recycler_view.layoutManager=StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+
+
+        caocap_button.setOnClickListener(){
+            finish()
+        }
+
+        caocap_button.setOnLongClickListener(){
+            // Not yet
+            true
+        }
 
         personal_menu_button.setOnClickListener(){
             startActivity(Intent(this,MenuActivity::class.java))
