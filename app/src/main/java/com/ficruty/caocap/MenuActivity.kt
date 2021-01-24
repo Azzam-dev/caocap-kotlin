@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import com.ficruty.caocap.Controller.MainActivity
 import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.ficruty.caocap.LoginSignup.RegisterationActivity
+import com.ficruty.caocap.Setting.SettingActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_menu.*
@@ -25,10 +26,11 @@ class MenuActivity : AppCompatActivity() {
             startActivity(Intent(this,EditPersonalActivity::class.java))
         }
         menu_activity_settings_image_view.setOnClickListener(){
-            // Not yet
+            startActivity(Intent(this,SettingActivity::class.java))
         }
         menu_activity_settings_text_view.setOnClickListener(){
-            // Not yet
+            startActivity(Intent(this,SettingActivity::class.java))
+
         }
         menu_activity_logout_text_view.setOnClickListener(){
             logoutButton()

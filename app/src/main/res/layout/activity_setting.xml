@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/caocapDefaultBackground"
+        tools:context=".Setting.SettingActivity">
+
+    <TextView
+            android:id="@+id/setting_activity_change_email_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/builder_link_edit_text_border"
+            android:padding="10dp"
+            android:text="Change email"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/textView24"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/builder_link_edit_text_border"
+            android:padding="10dp"
+            android:text="Chagne password"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="@+id/setting_activity_change_email_button"
+            app:layout_constraintStart_toStartOf="@+id/setting_activity_change_email_button"
+            app:layout_constraintTop_toBottomOf="@+id/setting_activity_change_email_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

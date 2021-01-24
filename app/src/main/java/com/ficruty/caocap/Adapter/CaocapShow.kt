@@ -39,6 +39,32 @@ class CaocapAdapter(var caocap: Caocap): Item<ViewHolder>(){
     }
 }
 
+class CaocapAdapterShow(var caocap:Caocap): Item<ViewHolder>(){
+    override fun getLayout(): Int {
+        return R.layout.simple_item
+    }
+    override fun bind(viewHolder: ViewHolder, position: Int) {
+        viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
+        viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
+        when(caocap.type){
+            "link" -> viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
+            "code" ->{
+                Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:
+                    ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+            }
+        }
+    }
+}
+
 class CaocapAdapterPersonal(var caocap:Caocap): Item<ViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.simple_item

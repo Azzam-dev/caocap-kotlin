@@ -9,7 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".LoginSignup.ResetPasswordActivity"></activity>
+        <activity android:name=".Setting.ChangeEmailActivity"></activity>
+        <activity android:name=".Setting.SettingActivity" />
+        <activity android:name=".LoginSignup.ResetPasswordActivity" />
         <activity android:name=".EditPersonalActivity" />
         <activity android:name=".Buliders.BuilderCodeActivity" />
         <activity android:name=".Buliders.BuilderLinkActivity" />

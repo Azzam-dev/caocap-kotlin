@@ -11,6 +11,7 @@ import com.ficruty.caocap.Adapter.ExploreAdapter
 import com.ficruty.caocap.Database.caocap
 import com.ficruty.caocap.Database.mySimpleData
 import com.ficruty.caocap.Models.Caocap
+import com.ficruty.caocap.Services.IntentParse
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -107,7 +108,7 @@ class Explore : AppCompatActivity() {
                         adapter.setOnItemClickListener(){item, view ->
                             val intent= Intent(view.context,CaocapShowActivity::class.java)
                             val intenty= item as CaocapAdapter;
-                            intent.putExtra("caocap_intent_push",intenty.caocap);
+                            intent.putExtra(IntentParse().caocapShowIntent,intenty.caocap);
                             startActivity(intent);
                         }
 

@@ -80,15 +80,15 @@
                 android:text="TextView"
                 android:textColor="@color/signInSignUpBackground"
                 android:textSize="10sp"
-                app:layout_constraintBottom_toTopOf="@+id/caocap_show_activity_caocap_followrs_number_text_view"
-                app:layout_constraintStart_toStartOf="@+id/caocap_show_activity_caocap_followrs_number_text_view" />
+                app:layout_constraintBottom_toTopOf="@+id/caocap_show_activity_caocap_orbiting_number_text_view"
+                app:layout_constraintStart_toStartOf="@+id/caocap_show_activity_caocap_orbiting_number_text_view" />
 
         <TextView
-                android:id="@+id/caocap_show_activity_caocap_followrs_number_text_view"
+                android:id="@+id/caocap_show_activity_caocap_orbiting_number_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
+                android:text="000 orbiting"
                 android:textColor="@color/signInSignUpBackground"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -125,4 +125,13 @@
                 app:layout_constraintTop_toTopOf="@+id/caocap_show_activity_share_button"
                 app:srcCompat="@drawable/icons8_menu_2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/caocap_show_activity_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline16" />
 </androidx.constraintlayout.widget.ConstraintLayout>
