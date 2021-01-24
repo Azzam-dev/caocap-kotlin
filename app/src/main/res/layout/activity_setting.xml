@@ -7,29 +7,78 @@
         android:background="@color/caocapDefaultBackground"
         tools:context=".Setting.SettingActivity">
 
-    <TextView
-            android:id="@+id/setting_activity_change_email_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/builder_link_edit_text_border"
-            android:padding="10dp"
-            android:text="Change email"
-            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+                android:id="@+id/setting_acitivty_not_verify_message_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="!! You not verify your email"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/setting_activity_send_verify_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Send verify"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/setting_acitivty_not_verify_message_text_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/setting_acitivty_setting_text_view">
+
+        <TextView
+                android:id="@+id/setting_activity_change_email_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/builder_link_edit_text_border"
+                android:padding="10dp"
+                android:text="Change email"
+                android:textColor="@android:color/white" />
+
+        <TextView
+                android:id="@+id/setting_activity_change_password_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/builder_link_edit_text_border"
+                android:padding="10dp"
+                android:text="Chagne password"
+                android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/setting_acitivty_setting_text_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/builder_link_edit_text_border"
-            android:padding="10dp"
-            android:text="Chagne password"
+            android:layout_marginTop="16dp"
+            android:text="SETTING"
+            android:textAlignment="center"
             android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="@+id/setting_activity_change_email_button"
-            app:layout_constraintStart_toStartOf="@+id/setting_activity_change_email_button"
-            app:layout_constraintTop_toBottomOf="@+id/setting_activity_change_email_button" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

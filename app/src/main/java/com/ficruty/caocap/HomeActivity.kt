@@ -34,7 +34,10 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
-
+        button.setOnClickListener(){
+            Firebase.auth.signOut()
+            checkLogin()
+        }
 
 
     }
