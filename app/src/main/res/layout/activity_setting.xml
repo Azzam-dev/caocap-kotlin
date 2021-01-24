@@ -12,6 +12,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/holo_red_light"
+            android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -23,6 +24,7 @@
                 android:text="!! You not verify your email"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,11 +32,13 @@
                 android:id="@+id/setting_activity_send_verify_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/builder_menu_caocap_cancel_button"
+                android:padding="5dp"
                 android:text="Send verify"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/setting_acitivty_not_verify_message_text_view" />
+                app:layout_constraintTop_toTopOf="@+id/setting_acitivty_not_verify_message_text_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -42,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

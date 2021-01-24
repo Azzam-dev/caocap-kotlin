@@ -2,6 +2,9 @@ package com.ficruty.caocap.Setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.widget.Toast
 import com.ficruty.caocap.R
@@ -15,27 +18,61 @@ class ChangePasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_password)
 
+        var hidePassword=true;
 
-        change_password_activity_update_button.setOnClickListener(){
-            var email=change_password_activity_email_edit_text.text.toString()
-            var currentPassword=change_password_activity_current_password_edit_text.text.toString()
-            var newPassword=change_password_activity_new_password_edit_text.text.toString()
-            var confirmPassword=change_password_activity_confirm_new_password_edit_text.text.toString()
-
-            Firebase.auth.signInWithEmailAndPassword(email,currentPassword).addOnSuccessListener {
-                if(newPassword.equals(confirmPassword,ignoreCase = false)){
-                    Firebase.auth.currentUser!!.updatePassword(newPassword).addOnSuccessListener {
-                        Toast.makeText(this,"The password was updated. ",Toast.LENGTH_SHORT).show()
-                        finish()
-                    }.addOnFailureListener {
-                        Toast.makeText(this,it.message.toString(),Toast.LENGTH_SHORT).show()
-                    }
-                }else{
-                    Toast.makeText(this,"The password and confirm is not matched. ",Toast.LENGTH_SHORT).show()
-                }
-            }.addOnFailureListener {
-                Toast.makeText(this,it.message.toString(),Toast.LENGTH_SHORT).show()
+        change_password_acitivity_show_password_button.setOnClickListener(){
+            if(hidePassword){
+                change_password_acitivity_show_password_button.setImageResource(R.drawable.icons8_eye_white_100px);
+                change_password_activity_new_password_edit_text.transformationMethod= HideReturnsTransformationMethod.getInstance()
+                hidePassword=false
+            }else{
+                change_password_acitivity_show_password_button.setImageResource(R.drawable.icons8_eye_grey_100px_1);
+                change_password_activity_new_password_edit_text.transformationMethod=PasswordTransformationMethod.getInstance()
+                hidePassword=true
             }
         }
-    }
+
+
+        change_password_activity_update_button.setOnClickListener() {
+            var email = change_password_activity_email_edit_text.text.toString()
+            var currentPassword =
+                change_password_activity_current_password_edit_text.text.toString()
+            var newPassword = change_password_activity_new_password_edit_text.text.toString()
+            var confirmPassword =
+                change_password_activity_confirm_new_password_edit_text.text.toString()
+
+            if (email.isNotEmpty() && currentPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmPassword.isNotEmpty()) {
+            Firebase.auth.signInWithEmailAndPassword(email, currentPassword)
+                .addOnSuccessListener {
+                    if (newPassword.equals(confirmPassword, ignoreCase = false)) {
+                        Firebase.auth.currentUser!!.updatePassword(newPassword)
+                            .addOnSuccessListener {
+                                Toast.makeText(
+                                    this,
+                                    "The password was updated. ",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                finish()
+                            }.addOnFailureListener {
+                                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                    } else {
+                        Toast.makeText(
+                            this,
+                            "The password and confirm is not matched. ",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }.addOnFailureListener {
+                    Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+        }else{Toast.makeText(
+            this,
+            "Please fill or data ",
+            Toast.LENGTH_SHORT
+        ).show()
+        }
+        }
+            }
 }

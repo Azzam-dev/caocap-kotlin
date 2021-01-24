@@ -65,6 +65,8 @@ class BuilderLinkActivity : AppCompatActivity() {
                     if(Patterns.WEB_URL.matcher(caocapLink).matches()){
                     var caocapKey = Firebase.database.getReference("caocap").push().key.toString()
 
+
+
 //                    var pushCaocapMap = mapOf<Any, Any>(
 //                        "name" to caocapName,
 //                        "link" to caocapLink,
@@ -74,6 +76,8 @@ class BuilderLinkActivity : AppCompatActivity() {
 //                        "published" to true,
 //                        "owners" to mapOf<Int, String>(0 to uid)
 //                    )
+
+
 
                     Firebase.database.getReference("caocap/$caocapKey").setValue(
                         CaocapLink(

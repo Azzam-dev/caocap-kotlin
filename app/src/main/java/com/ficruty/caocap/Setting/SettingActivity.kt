@@ -16,6 +16,8 @@ class SettingActivity : AppCompatActivity() {
 
         if(Firebase.auth.currentUser!!.isEmailVerified==false){
             setting_acitivty_setting_text_view.text=null;
+            setting_acitivty_setting_text_view.layoutParams.height=0;
+            setting_acitivty_not_verify_message_text_view.text="${Firebase.auth.currentUser!!.email.toString()} is that your email? \nYou don't verity untill now ! ";
             setting_activity_send_verify_button.setOnClickListener(){
                 Firebase.auth.currentUser!!.sendEmailVerification().addOnSuccessListener {
                     Toast.makeText(this,"The verfication sent.",Toast.LENGTH_SHORT).show()
