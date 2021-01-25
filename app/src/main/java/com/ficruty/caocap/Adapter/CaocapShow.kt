@@ -1,5 +1,6 @@
 package com.ficruty.caocap.Adapter
 
+import android.util.Log
 import com.ficruty.caocap.Models.Caocap
 import com.ficruty.caocap.R
 import com.google.firebase.database.DataSnapshot
@@ -23,17 +24,9 @@ class CaocapAdapter(var caocap: Caocap): Item<ViewHolder>(){
         when(caocap.type){
             "link" -> viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
             "code" ->{
-                Firebase.database.getReference("caocap").orderByChild("id").equalTo(caocap.name).addListenerForSingleValueEvent(object:
-                    ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onDataChange(p0: DataSnapshot) {
-                        TODO("Not yet implemented")
-                    }
-
-                })
+                    var code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>\\${caocap.css}</style></head><body>\\${caocap.html}<script>\\${caocap.js}</script></body></html>\n"
+                    Log.d("the_code","${caocap.html} \n ${caocap.css} \n ${caocap.js}")
+                    viewHolder.itemView.simple_item_caocap_web_view.loadData(code,"text/html","UTF-8")
             }
         }
     }
@@ -49,17 +42,8 @@ class CaocapAdapterShow(var caocap:Caocap): Item<ViewHolder>(){
         when(caocap.type){
             "link" -> viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
             "code" ->{
-                Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:
-                    ValueEventListener {
-                    override fun onCancelled(p0: DatabaseError) {
-                        TODO("Not yet implemented")
-                    }
-
-                    override fun onDataChange(p0: DataSnapshot) {
-                        TODO("Not yet implemented")
-                    }
-
-                })
+                var code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>\\${caocap.css}</style></head><body>\\${caocap.html}<script>\\${caocap.js}</script></body></html>\n"
+                viewHolder.itemView.simple_item_caocap_web_view.loadData(code,"text/html","UTF-8")
             }
         }
     }

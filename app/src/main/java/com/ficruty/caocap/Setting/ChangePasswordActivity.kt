@@ -34,7 +34,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
 
         change_password_activity_update_button.setOnClickListener() {
-            var email = change_password_activity_email_edit_text.text.toString()
+            var email = Firebase.auth.currentUser!!.email.toString()
             var currentPassword =
                 change_password_activity_current_password_edit_text.text.toString()
             var newPassword = change_password_activity_new_password_edit_text.text.toString()

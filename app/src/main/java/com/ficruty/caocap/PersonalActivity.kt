@@ -39,11 +39,11 @@ class PersonalActivity : AppCompatActivity() {
 
 
         caocap_button.setOnClickListener(){
-            finish()
+
         }
 
         caocap_button.setOnLongClickListener(){
-            // Not yet
+            startActivity(Intent(this,Explore::class.java))
             true
         }
 
