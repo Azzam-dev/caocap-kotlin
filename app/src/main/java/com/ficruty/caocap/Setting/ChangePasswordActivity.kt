@@ -2,6 +2,7 @@ package com.ficruty.caocap.Setting
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.text.InputType
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
@@ -24,13 +25,22 @@ class ChangePasswordActivity : AppCompatActivity() {
             if(hidePassword){
                 change_password_acitivity_show_password_button.setImageResource(R.drawable.icons8_eye_white_100px);
                 change_password_activity_new_password_edit_text.transformationMethod= HideReturnsTransformationMethod.getInstance()
+                change_password_activity_confirm_new_password_edit_text.setText("");
+                change_password_activity_confirm_new_password_edit_text.isEnabled=false
                 hidePassword=false
             }else{
                 change_password_acitivity_show_password_button.setImageResource(R.drawable.icons8_eye_grey_100px_1);
                 change_password_activity_new_password_edit_text.transformationMethod=PasswordTransformationMethod.getInstance()
+                change_password_activity_confirm_new_password_edit_text.isEnabled=true
                 hidePassword=true
             }
         }
+
+//        change_password_activity_confirm_new_password_edit_text.setOnClickListener(){
+//            if(change_password_activity_confirm_new_password_edit_text.isEnabled==false){
+//                Toast.makeText(this,"You must hide the new password",Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
 
         change_password_activity_update_button.setOnClickListener() {
