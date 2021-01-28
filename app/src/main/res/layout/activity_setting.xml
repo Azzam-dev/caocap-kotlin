@@ -69,8 +69,18 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/builder_link_edit_text_border"
                 android:padding="10dp"
-                android:text="Chagne password"
+                android:text="Change password"
                 android:textColor="@android:color/white" />
+
+        <TextView
+        android:id="@+id/setting_activity_change_language_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/builder_link_edit_text_border"
+        android:padding="10dp"
+        android:text="Change language"
+        android:textColor="@android:color/white" />
     </LinearLayout>
 
     <TextView
