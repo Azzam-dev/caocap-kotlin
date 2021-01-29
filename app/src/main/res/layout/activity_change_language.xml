@@ -21,7 +21,7 @@ tools:context=".Setting.ChangeLanguageActivity">
             app:layout_constraintTop_toTopOf="parent" />
 
 <Button
-        android:id="@+id/change_email_acitivty_update_button"
+        android:id="@+id/change_language_activity_update_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
