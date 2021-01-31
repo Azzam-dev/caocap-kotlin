@@ -17,13 +17,21 @@ class ChangeLanguageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_language)
+
         var counter=0;
 
         var newLanguage=""
+        var languageIsNotAvailabe:Boolean=false
         var languagesArray=ArrayList<String>(5);
 
         languagesArray.add(Language.EN.lan.toString())
         languagesArray.add(Language.AR.lan.toString())
+
+        while(counter<languagesArray.size){
+            if(languagesArray[counter].equals(Firebase.auth.languageCode.toString(),ignoreCase = true)){
+
+            }
+        }
 
 //        change_language_activity_spinner.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languagesArray);
         change_language_activity_spinner.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languagesArray)
@@ -45,14 +53,16 @@ class ChangeLanguageActivity : AppCompatActivity() {
         }
 
         change_language_activity_update_button.setOnClickListener(){
-            if(Firebase.auth.languageCode.toString()!=newLanguage){
-                Firebase.auth.setLanguageCode(newLanguage)
-                Toast.makeText(this,"The language was updated\nThe new Language is ${Firebase.auth.languageCode.toString()}",Toast.LENGTH_SHORT).show()
-                finish()
-            }else{
-                Toast.makeText(this,"You didn't change anything.",Toast.LENGTH_SHORT).show()
 
-            }
+                Firebase.auth.setLanguageCode("kh")
+//            if(Firebase.auth.languageCode.toString()!=newLanguage){
+//                Firebase.auth.setLanguageCode(newLanguage)
+//                Toast.makeText(this,"The language was updated\nThe new Language is ${Firebase.auth.languageCode.toString()}",Toast.LENGTH_SHORT).show()
+//                finish()
+//            }else{
+//                Toast.makeText(this,"You didn't change anything.",Toast.LENGTH_SHORT).show()
+//
+//            }
 
         }
 
