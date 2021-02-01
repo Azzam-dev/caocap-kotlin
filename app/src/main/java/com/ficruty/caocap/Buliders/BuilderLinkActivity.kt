@@ -78,16 +78,19 @@ class BuilderLinkActivity : AppCompatActivity() {
 //                    )
 
 
+                        val caocap: HashMap<String, CaocapLink> = HashMap()
 
-                    Firebase.database.getReference("caocap/$caocapKey").setValue(
-                        CaocapLink(
+                        caocap.put("caocap",CaocapLink(
                             caocapName,
                             caocapLink,
                             "link",
                             caocapColor,
                             "https://",
                             true
-                        )
+                        ))
+
+                    Firebase.database.getReference("caocap/$caocapKey").setValue(
+                        caocap
                     ).addOnSuccessListener {
 //                        Firebase.database.getReference("caocap/$caocapKey/owners").setValue()
                         finish()
