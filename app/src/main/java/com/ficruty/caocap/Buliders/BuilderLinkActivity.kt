@@ -77,7 +77,7 @@ class BuilderLinkActivity : AppCompatActivity() {
 //                        "owners" to mapOf<Int, String>(0 to uid)
 //                    )
 
-
+                        //
                         val caocap: HashMap<String, CaocapLink> = HashMap()
 
                         caocap.put("caocap",CaocapLink(
