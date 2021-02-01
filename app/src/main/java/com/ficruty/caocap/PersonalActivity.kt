@@ -23,6 +23,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_personal.*
 import kotlinx.android.synthetic.main.builder_choose_menu.view.*
+import java.util.logging.Level.INFO
 
 class PersonalActivity : AppCompatActivity() {
 
@@ -96,7 +97,9 @@ class PersonalActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 p0.children.forEach(){
-                    val c=it.getValue(Caocap::class.java);
+                    val c=it.getValue(Caocap::class.java)
+
+
                     if(c!=null){
                         if(c.type=="link"){
                             adapter.add(CaocapAdapterPersonal(c));

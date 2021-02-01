@@ -32,8 +32,10 @@ class CaocapShowActivity : AppCompatActivity() {
 
         Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
+
                 p0.children.forEach(){
-                    var c=it.getValue(Caocap::class.java)
+                    var c=it.child("caocap").getValue(Caocap::class.java)
+                 
                     if(c!=null){
                         if(c.type=="link"){
                             adapter.add(CaocapAdapterShow(c))
