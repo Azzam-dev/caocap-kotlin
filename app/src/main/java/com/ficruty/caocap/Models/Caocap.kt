@@ -16,7 +16,7 @@ class Caocap(var name:String,var link:String,var type:String,var color:Int,var i
 }
 
 @Parcelize
-class CaocapLink(var name:String,var link:String,val type:String="link",var color:Int,var imageURL:String,var published:Boolean):Parcelable{
-    constructor():this("","","link",0,"",true);
+class CaocapLink(var name:String,var link:String,val type:String="link",var color:Int,var imageURL:String,var published:Boolean, var owners:HashMap<String,String>):Parcelable{
+    constructor():this("","","link",0,"",true,HashMap());
 }
 

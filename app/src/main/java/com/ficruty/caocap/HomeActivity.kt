@@ -1,18 +1,13 @@
 package com.ficruty.caocap
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.ficruty.caocap.LoginSignup.LoginActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_home.view.*
-//import kotlinx.android.synthetic.main.activity_home.view.home_uid_view
 
 class HomeActivity : AppCompatActivity() {
 
@@ -34,11 +29,20 @@ class HomeActivity : AppCompatActivity() {
             true
         }
 
-        button.setOnClickListener(){
+        animation.setOnClickListener(){
             Firebase.auth.signOut()
             checkLogin()
         }
 
+
+        animation.setOnClickListener(){
+            startActivity(Intent(this,AnimationTest::class.java))
+        }
+
+        logout.setOnClickListener(){
+            Firebase.auth.signOut()
+            checkLogin()
+        }
 
     }
     private fun checkVersion(){
