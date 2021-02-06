@@ -1,11 +1,18 @@
 package com.ficruty.caocap.Models
 
 import android.os.Parcelable
+import com.google.firebase.database.DataSnapshot
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
+
+lateinit var dt: @RawValue DataSnapshot
 
 @Parcelize
-class Caocap(var name:String,var link:String,var type:String,var color:Int,var imageURL:String,var published:Boolean, var html:String, var css:String, var js:String):Parcelable {
-    constructor():this("","","",0,"",true,"","","");
+
+class Caocap(var name:String,var link:String,var type:String,var color:Int,var imageURL:String,var published:Boolean):Parcelable {
+
+    constructor():this("","","",0,"",true);
+
 }
 
 @Parcelize

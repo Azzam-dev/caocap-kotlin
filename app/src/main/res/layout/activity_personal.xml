@@ -189,46 +189,135 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/caocap_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <View-->
+<!--                android:id="@+id/nav_layer0"-->
+<!--                android:layout_width="64dp"-->
+<!--                android:layout_height="64dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:background="@drawable/rounded_nav_button_layer0"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/navButton" />-->
+
+<!--        <View-->
+<!--                android:id="@+id/nav_layer1"-->
+<!--                android:layout_width="54dp"-->
+<!--                android:layout_height="54dp"-->
+<!--                android:background="@drawable/rounded_nav_button_layer1"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/nav_layer0"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/nav_layer0"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/nav_layer0"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/nav_layer0" />-->
+
+<!--        <View-->
+<!--                android:id="@+id/nav_layer2"-->
+<!--                android:layout_width="42dp"-->
+<!--                android:layout_height="42dp"-->
+<!--                android:background="@drawable/rounded_nav_button_layer2"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/nav_layer1"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/nav_layer1"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/nav_layer1"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/nav_layer1" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/caocap_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:id="@+id/constraintLayout7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <View
-                android:id="@+id/nav_layer0"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/rounded_nav_button_layer0"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/Bed"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:contentDescription="Caocap_boutton"
+                android:focusable="false"
+                android:scaleX="1"
+                android:scaleY="1"
+                app:backgroundTint="@color/black"
+                app:fabCustomSize="75dp"
+                app:fabSize="auto"
+                app:hideMotionSpec="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/navButton" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                app:rippleColor="@null"
+                app:showMotionSpec="@null" />
 
-        <View
-                android:id="@+id/nav_layer1"
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:background="@drawable/rounded_nav_button_layer1"
-                app:layout_constraintBottom_toBottomOf="@+id/nav_layer0"
-                app:layout_constraintEnd_toEndOf="@+id/nav_layer0"
-                app:layout_constraintStart_toStartOf="@+id/nav_layer0"
-                app:layout_constraintTop_toTopOf="@+id/nav_layer0" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/prfile_activity_caocap_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:contentDescription="Caocap_boutton"
+                android:focusable="true"
 
-        <View
-                android:id="@+id/nav_layer2"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:background="@drawable/rounded_nav_button_layer2"
-                app:layout_constraintBottom_toBottomOf="@+id/nav_layer1"
-                app:layout_constraintEnd_toEndOf="@+id/nav_layer1"
-                app:layout_constraintStart_toStartOf="@+id/nav_layer1"
-                app:layout_constraintTop_toTopOf="@+id/nav_layer1" />
+                android:visibility="visible"
+                app:backgroundTint="@color/caocapButtonColor"
+                app:fabCustomSize="60dp"
+                app:fabSize="auto"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9399"
+                app:rippleColor="@color/caocapDefaultBackground" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+            android:id="@+id/chat_bt"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8"
+            app:srcCompat="@drawable/icons8_chat" />
+
+    <ImageView
+            android:id="@+id/explor_bt"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.86"
+            app:srcCompat="@drawable/astronaut_small" />
+
+    <ImageView
+            android:id="@+id/profile_bt"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.86"
+            app:srcCompat="@drawable/ic_airplane" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_home.view.*
-import kotlinx.android.synthetic.main.activity_home.view.home_uid_view
+//import kotlinx.android.synthetic.main.activity_home.view.home_uid_view
 
 class HomeActivity : AppCompatActivity() {
 

@@ -78,8 +78,8 @@ class BuilderLinkActivity : AppCompatActivity() {
 //                    )
 
                         //
-                        val caocap: HashMap<String, CaocapLink> = HashMap()
 
+                        val caocap: HashMap<String, CaocapLink> = HashMap()
                         caocap.put("caocap",CaocapLink(
                             caocapName,
                             caocapLink,
