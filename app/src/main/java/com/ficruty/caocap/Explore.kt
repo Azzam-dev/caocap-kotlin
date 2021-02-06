@@ -73,14 +73,7 @@ class Explore : AppCompatActivity() {
 
             }else{
 
-                val m = AnimationUtils.loadAnimation(this, R.anim.scale_down)
-                val y = AnimationUtils.loadAnimation(this, R.anim.main_fadeout)
-                explor_bt.startAnimation(m)
-                Bed.startAnimation(y)
-                profile_bt.startAnimation(m)
-                chat_bt.startAnimation(m)
-
-                animState = false
+                closeMsin()
             }
 
             true
