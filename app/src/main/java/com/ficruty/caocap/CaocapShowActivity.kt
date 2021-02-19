@@ -27,12 +27,15 @@ class CaocapShowActivity : AppCompatActivity() {
         caocap_show_caocap_web_view.loadUrl(intent.getParcelableExtra<Caocap>(caocapIntent)!!.link)
 
         var adapter=GroupAdapter<ViewHolder>()
+
         caocap_show_activity_recycler_view.layoutManager= StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
         Firebase.database.getReference("caocap").addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
+
                 p0.children.forEach(){
-                    var c=it.getValue(Caocap::class.java)
+                    var c=it.child("caocap").getValue(Caocap::class.java)
+                 
                     if(c!=null){
                         if(c.type=="link"){
                             adapter.add(CaocapAdapterShow(c))

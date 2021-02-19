@@ -3,7 +3,10 @@ package com.ficruty.caocap
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ficruty.caocap.Adapter.CaocapAdapterPersonal
@@ -20,7 +23,13 @@ import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.activity_explore.*
 import kotlinx.android.synthetic.main.activity_personal.*
+import kotlinx.android.synthetic.main.activity_personal.Bed
+import kotlinx.android.synthetic.main.activity_personal.chat_bt
+import kotlinx.android.synthetic.main.activity_personal.explor_bt
+import kotlinx.android.synthetic.main.activity_personal.prfile_activity_caocap_button
+import kotlinx.android.synthetic.main.activity_personal.profile_bt
 import kotlinx.android.synthetic.main.builder_choose_menu.view.*
 
 class PersonalActivity : AppCompatActivity() {
@@ -28,13 +37,80 @@ class PersonalActivity : AppCompatActivity() {
         var borderColor=0
         var adapter=GroupAdapter<ViewHolder>();
         var uid=Firebase.auth.uid.toString();
+        private var animState = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal)
           checkLogin()
           getUsername()
-           personal_my_caoaps_recycler_view.layoutManager=StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+          personal_my_caoaps_recycler_view.layoutManager=StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.HORIZONTAL);
+          profile_bt.scaleX = 0f
+          profile_bt.scaleY = 0f
+
+          chat_bt.scaleX = 0f
+          chat_bt.scaleY = 0f
+
+          explor_bt.scaleX = 0f
+          explor_bt.scaleY = 0f
+
+         prfile_activity_caocap_button.setOnClickListener(){
+
+         }
+
+        prfile_activity_caocap_button.setOnLongClickListener() {
+
+            if (!animState) {
+
+
+                val m = AnimationUtils.loadAnimation(this, R.anim.scale_up)
+                val g = AnimationUtils.loadAnimation(this, R.anim.main_fade)
+
+                profile_bt.startAnimation(m)
+                chat_bt.startAnimation(m)
+                explor_bt.startAnimation(m)
+                Bed.startAnimation(g)
+
+                m.setAnimationListener(object : Animation.AnimationListener{
+                    override fun onAnimationStart(animation: Animation?) {
+                        profile_bt.scaleX = 1f
+                        profile_bt.scaleY = 1f
+
+                        chat_bt.scaleX = 1f
+                        chat_bt.scaleY = 1f
+
+                        explor_bt.scaleX = 1f
+                        explor_bt.scaleY = 1f
+                    }
+
+                    override fun onAnimationEnd(animation: Animation?) {
+                        //placeHolder
+                        Log.println(Log.INFO,"ff","ff")
+
+                    }
+
+                    override fun onAnimationRepeat(animation: Animation?) {
+                        //placeHolder
+                        Log.println(Log.INFO,"ff","ff")
+                    }
+
+
+                })
+                animState = true
+            }else{
+
+                val m = AnimationUtils.loadAnimation(this, R.anim.scale_down)
+                val y = AnimationUtils.loadAnimation(this, R.anim.main_fadeout)
+                explor_bt.startAnimation(m)
+                Bed.startAnimation(y)
+                profile_bt.startAnimation(m)
+                chat_bt.startAnimation(m)
+
+                animState = false
+            }
+
+            true
+        }
 
         personal_menu_button.setOnClickListener(){
             startActivity(Intent(this,MenuActivity::class.java))
@@ -85,7 +161,9 @@ class PersonalActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 p0.children.forEach(){
-                    val c=it.getValue(Caocap::class.java);
+                    val c=it.getValue(Caocap::class.java)
+
+
                     if(c!=null){
                         if(c.type=="link"){
                             adapter.add(CaocapAdapterPersonal(c));

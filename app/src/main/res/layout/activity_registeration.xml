@@ -169,4 +169,39 @@
             app:layout_constraintStart_toStartOf="@+id/registration_password_edit_text"
             app:srcCompat="@drawable/password" />
 
+    <Switch
+            android:id="@+id/registration_language_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:textColor="@color/black"
+            android:textOff="English"
+            android:textOn="Arabic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registration_password_edit_text" />
+
+    <TextView
+            android:id="@+id/registration_language_Arabic_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:text="العربية"
+            android:textColor="@android:color/secondary_text_light"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_language_switch"
+            app:layout_constraintStart_toEndOf="@+id/registration_language_switch"
+            app:layout_constraintTop_toTopOf="@+id/registration_language_switch" />
+
+    <TextView
+            android:id="@+id/registration_language_English_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="English"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/registration_language_switch"
+            app:layout_constraintEnd_toStartOf="@+id/registration_language_switch"
+            app:layout_constraintTop_toTopOf="@+id/registration_language_switch" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

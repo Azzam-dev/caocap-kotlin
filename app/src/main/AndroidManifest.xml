@@ -9,7 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".Setting.ChangePasswordActivity"></activity>
+
+        <activity android:name=".Setting.ChangeLanguageActivity" />
+        <activity android:name=".Setting.ChangePasswordActivity" />
         <activity android:name=".Setting.ChangeEmailActivity" />
         <activity android:name=".Setting.SettingActivity" />
         <activity android:name=".LoginSignup.ResetPasswordActivity" />
@@ -19,16 +21,22 @@
         <activity android:name=".CaocapShowActivity" />
         <activity android:name=".ChatLogActivity" />
         <activity android:name=".ChatActivity" />
-        <activity android:name=".Explore" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".Menu_Activity" />
-        <activity android:name=".PersonalActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".Explore">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
+        </activity>
+        <activity android:name=".MenuActivity" />
+
+        <activity android:name=".PersonalActivity" />
+        <activity android:name=".HomeActivity">
+
+
         </activity>
         <activity android:name=".LoginSignup.RegisterationActivity" />
         <activity android:name=".LoginSignup.LoginActivity" />

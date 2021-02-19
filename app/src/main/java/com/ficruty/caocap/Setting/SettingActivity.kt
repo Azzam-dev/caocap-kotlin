@@ -38,5 +38,10 @@ class SettingActivity : AppCompatActivity() {
         setting_activity_change_password_button.setOnClickListener(){
             startActivity(Intent(this,ChangePasswordActivity::class.java))
         }
+
+        setting_activity_change_language_button.setOnClickListener(){
+            startActivity(Intent(this,ChangeLanguageActivity::class.java))
+
+        }
     }
 }

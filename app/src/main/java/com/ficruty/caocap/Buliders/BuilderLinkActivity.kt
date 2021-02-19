@@ -65,19 +65,9 @@ class BuilderLinkActivity : AppCompatActivity() {
                     if(Patterns.WEB_URL.matcher(caocapLink).matches()){
                     var caocapKey = Firebase.database.getReference("caocap").push().key.toString()
 
-
-
-//                    var pushCaocapMap = mapOf<Any, Any>(
-//                        "name" to caocapName,
-//                        "link" to caocapLink,
-//                        "type" to "link",
-//                        "color" to caocapColor,
-//                        "imageURL" to "https://",
-//                        "published" to true,
-//                        "owners" to mapOf<Int, String>(0 to uid)
-//                    )
-
-
+                        var firstOwner:HashMap<String,String> = HashMap()
+                        firstOwner.put("0",Firebase.auth.uid.toString())
+                        
 
                     Firebase.database.getReference("caocap/$caocapKey").setValue(
                         CaocapLink(
@@ -86,10 +76,10 @@ class BuilderLinkActivity : AppCompatActivity() {
                             "link",
                             caocapColor,
                             "https://",
-                            true
+                            true,
+                            firstOwner
                         )
                     ).addOnSuccessListener {
-//                        Firebase.database.getReference("caocap/$caocapKey/owners").setValue()
                         finish()
                     }.addOnFailureListener {
                         Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
