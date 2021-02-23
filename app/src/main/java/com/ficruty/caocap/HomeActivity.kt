@@ -35,9 +35,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
-        animation.setOnClickListener(){
-            startActivity(Intent(this,AnimationTest::class.java))
-        }
+
 
         logout.setOnClickListener(){
             Firebase.auth.signOut()

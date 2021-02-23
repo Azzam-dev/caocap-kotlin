@@ -8,6 +8,7 @@ import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.ficruty.caocap.Controller.MainActivity
+import com.ficruty.caocap.Explore
 import com.ficruty.caocap.HomeActivity
 import com.ficruty.caocap.Models.Users
 import com.ficruty.caocap.R
@@ -49,9 +50,9 @@ class RegisterationActivity : AppCompatActivity(){
         }
 
         registration_sign_up_button.setOnClickListener(){
-            var username=registration_username_edit_text.text.toString()
-            var email=registration_email_edit_text.text.toString()
-            var password=registration_password_edit_text.text.toString()
+            val username=registration_username_edit_text.text.toString()
+            val email=registration_email_edit_text.text.toString()
+            val password=registration_password_edit_text.text.toString()
 
             if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
                 Toast.makeText(this,"Please fill your data",Toast.LENGTH_SHORT).show()
@@ -60,12 +61,12 @@ class RegisterationActivity : AppCompatActivity(){
                     Toast.makeText(this,"The username must be 4 characters or more.",Toast.LENGTH_SHORT).show()
                 }else{
                     auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
-                        var uid=Firebase.auth.uid.toString()
-                        var reference=Firebase.database.getReference("users/$uid")
-                        var provider=Firebase.auth.currentUser?.providerId.toString()
+                        val uid=Firebase.auth.uid.toString()
+                        val reference=Firebase.database.getReference("users/$uid")
+                        val provider=Firebase.auth.currentUser?.providerId.toString()
                         reference.setValue(Users(username,email,provider)).addOnSuccessListener {
                             Firebase.auth.setLanguageCode(language.lan);
-                            var intent= Intent(this,HomeActivity::class.java)
+                            val intent= Intent(this,Explore::class.java)
                             intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }.addOnFailureListener(){

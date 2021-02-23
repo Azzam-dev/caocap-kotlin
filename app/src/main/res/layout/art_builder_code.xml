@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Buliders.BuilderCodeActivity">
+
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/web_sheet"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--            <WebView-->
+<!--                    android:id="@+id/builder_code_acitivty_web_view"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/code_sheet"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="350dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:background="@drawable/rounded_sheet"-->
+<!--                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">-->
+
+
+<!--            <EditText-->
+<!--                    android:id="@+id/builder_code_acitivty_code_edit_text"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:ems="10"-->
+<!--                    android:gravity="start|top"-->
+<!--                    android:hint="Type your code here"-->
+<!--                    android:inputType="textMultiLine"-->
+<!--                    android:textColor="@color/colorAccent"-->
+<!--                    android:textColorHint="@color/colorAccent"-->
+<!--                    app:layout_constraintBottom_toTopOf="@+id/builder_code_acitivty_test_button"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"-->
+<!--                    app:layout_constraintVertical_bias="0.0" />-->
+
+<!--            <LinearLayout-->
+<!--                    android:id="@+id/linearLayout2"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="45dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                <ImageView-->
+<!--                        android:id="@+id/builder_code_acitivty_HTML_code_button"-->
+<!--                        style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:src="@drawable/selected_html"-->
+<!--                        app:iconGravity="textEnd"-->
+<!--                        app:iconPadding="0dp"-->
+<!--                        app:iconTintMode="src_in" />-->
+
+<!--                <ImageView-->
+<!--                        android:id="@+id/builder_code_acitivty_CSS_code_button"-->
+<!--                        style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:src="@drawable/css"-->
+<!--                        app:iconGravity="textEnd"-->
+<!--                        app:iconPadding="0dp"-->
+<!--                        app:iconTintMode="src_in"-->
+<!--                        app:rippleColor="@color/caocapButtonColor" />-->
+
+<!--                <ImageView-->
+<!--                        android:id="@+id/builder_code_acitivty_JS_code_button"-->
+<!--                        style="@style/Widget.AppCompat.Button.Borderless"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:src="@drawable/js"-->
+<!--                        app:iconGravity="textEnd"-->
+<!--                        app:iconPadding="0dp"-->
+<!--                        app:iconTintMode="src_in"-->
+<!--                        app:rippleColor="@color/caocapButtonColor" />-->
+
+
+<!--            </LinearLayout>-->
+
+<!--            <Button-->
+<!--                    android:id="@+id/builder_code_acitivty_test_button"-->
+<!--                    style="@style/Widget.MaterialComponents.Button"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:backgroundTint="@color/colorAccent"-->
+<!--                    android:text="test"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.18"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:rippleColor="@color/caocapDefaultBackground" />-->
+
+<!--            <Button-->
+<!--                    android:id="@+id/builder_code_acitivty_publish_button"-->
+<!--                    style="@style/Widget.MaterialComponents.Button"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:backgroundTint="@color/colorAccent"-->
+<!--                    android:text="test"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.88"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:rippleColor="@color/caocapDefaultBackground" />-->
+
+<!--            <ImageView-->
+<!--                    android:id="@+id/imageView17"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="3dp"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:srcCompat="@drawable/base_line" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+    <!--    <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/guideline18"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_percent="0.6" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

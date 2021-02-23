@@ -7,6 +7,7 @@
         android:background="@color/caocapDefaultBackground"
         tools:context=".Explore">
 
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/explore_one_recycler_view"
             android:layout_width="0dp"
@@ -49,16 +50,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
                 android:id="@+id/Bed"
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:clickable="false"
-                android:contentDescription="Caocap_boutton"
+                android:contentDescription="@string/caocap_boutton_mian"
                 android:focusable="false"
                 android:scaleX="1"
                 android:scaleY="1"
+                android:visibility="visible"
                 app:backgroundTint="@color/black"
                 app:fabCustomSize="75dp"
                 app:fabSize="auto"
@@ -67,28 +68,27 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.95"
-                app:rippleColor="@null"
-                app:showMotionSpec="@null" />
+                app:layout_constraintVertical_bias="0.937"
+                android:src="@drawable/edit_profile_caocap_dark_color" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/prfile_activity_caocap_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+        <ImageView
+                android:id="@+id/caocapcode_name_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/mainbtn"
                 android:clickable="true"
-                android:contentDescription="Caocap_boutton"
+                android:contentDescription="@string/caocap_boutton_mian"
                 android:focusable="true"
-
                 android:visibility="visible"
-                app:backgroundTint="@color/caocapButtonColor"
-                app:fabCustomSize="60dp"
-                app:fabSize="auto"
+                app:backgroundTint="@null"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.9399"
+                app:layout_constraintVertical_bias="0.93"
                 app:rippleColor="@color/caocapDefaultBackground" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -100,11 +100,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.82"
+            app:layout_constraintVertical_bias="0.81"
             app:srcCompat="@drawable/icons8_chat" />
 
     <ImageView
-            android:id="@+id/explor_bt"
+            android:id="@+id/art_bt"
             android:layout_width="35dp"
             android:layout_height="35dp"
 
@@ -118,7 +118,7 @@
             app:srcCompat="@drawable/astronaut_small" />
 
     <ImageView
-            android:id="@+id/profile_bt"
+            android:id="@+id/test_bt"
             android:layout_width="35dp"
             android:layout_height="35dp"
             app:layout_constraintBottom_toBottomOf="parent"

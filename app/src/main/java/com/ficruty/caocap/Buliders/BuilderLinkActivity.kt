@@ -13,6 +13,7 @@ import android.webkit.URLUtil
 import android.widget.Toast
 import com.ficruty.caocap.Models.CaocapLink
 import com.ficruty.caocap.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -22,11 +23,12 @@ import kotlinx.android.synthetic.main.activity_edit_personal.*
 class BuilderLinkActivity : AppCompatActivity() {
     var selectImageUri: Uri? = null;
     var caocapColor:Int=0
+    var  auth =  FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_builder_link)
-        
+
 
 
         builder_link_red_border_button.setOnClickListener(){
@@ -57,33 +59,34 @@ class BuilderLinkActivity : AppCompatActivity() {
 
 
         builder_link_create_button.setOnClickListener(){
-            var uid=Firebase.auth.uid.toString()
-            var caocapName=builder_link_coacap_name_edit_text.text.toString()
-            var caocapLink=builder_link_coacap_link_edit_text.text.toString()
+            val uid= auth.currentUser?.uid.toString()
+            val caocapName=builder_link_coacap_name_edit_text.text.toString()
+            val caocapLink=builder_link_coacap_link_edit_text.text.toString()
             if(caocapName.isNotEmpty() &&caocapLink.isNotEmpty()){
-                if(caocapLink.substring(0,7).contains("http://",ignoreCase = true)==true || caocapLink.substring(0,8).contains("https://",ignoreCase = true)==true) {
+                if(caocapLink.substring(0,7).contains("http://",ignoreCase = true) || caocapLink.substring(0,8).contains("https://",ignoreCase = true)) {
                     if(Patterns.WEB_URL.matcher(caocapLink).matches()){
-                    var caocapKey = Firebase.database.getReference("caocap").push().key.toString()
+                    val caocapKey = Firebase.database.getReference("caocap").push().key.toString()
 
-                        var firstOwner:HashMap<String,String> = HashMap()
-                        firstOwner.put("0",Firebase.auth.uid.toString())
-                        
+                        val firstOwner:HashMap<String,String> = HashMap()
+                        firstOwner["0"] = uid
 
-                    Firebase.database.getReference("caocap/$caocapKey").setValue(
-                        CaocapLink(
-                            caocapName,
-                            caocapLink,
-                            "link",
-                            caocapColor,
-                            "https://",
-                            true,
-                            firstOwner
-                        )
-                    ).addOnSuccessListener {
-                        finish()
-                    }.addOnFailureListener {
-                        Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
-                    }
+
+
+//                    Firebase.database.getReference("caocap/$caocapKey").setValue(
+//                        CaocapLink(
+//                            caocapName,
+//                            caocapLink,
+//                            "link",
+//                            caocapColor,
+//                            "https://",
+//                            true,
+//                            firstOwner
+//                        )
+//                    ).addOnSuccessListener {
+//                        finish()
+//                    }.addOnFailureListener {
+//                        Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+//                    }
 
                     Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
                     }else{
@@ -113,7 +116,7 @@ class BuilderLinkActivity : AppCompatActivity() {
 
 
         builder_image_view.setOnClickListener(){
-            var photoIntent = Intent(Intent.ACTION_PICK);
+            val photoIntent = Intent(Intent.ACTION_PICK);
             photoIntent.type = "image/*"
             startActivityForResult(photoIntent, 0)
         }
@@ -126,10 +129,10 @@ class BuilderLinkActivity : AppCompatActivity() {
         if(requestCode==0 && resultCode== Activity.RESULT_OK && data != null){
 
             selectImageUri =data.data
-            var bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectImageUri);
+            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectImageUri);
             builder_image_view.setImageBitmap(bitmap)
 
-            var bitmapDrawable= BitmapDrawable(bitmap)
+            val bitmapDrawable= BitmapDrawable(bitmap)
             builder_image_view.setBackgroundDrawable(bitmapDrawable)
 
         }
