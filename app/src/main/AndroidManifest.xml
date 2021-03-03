@@ -14,7 +14,7 @@
         <activity android:name=".Setting.ChangePasswordActivity" />
         <activity android:name=".Setting.ChangeEmailActivity" />
         <activity android:name=".Setting.SettingActivity" />
-        <activity android:name=".LoginSignup.ResetPasswordActivity" />
+        <activity android:name=".Auth.ResetPasswordActivity" />
         <activity android:name=".EditPersonalActivity" />
         <activity android:name=".Buliders.BuilderCodeActivity" >
 
@@ -39,8 +39,8 @@
 
 
         </activity>
-        <activity android:name=".LoginSignup.RegisterationActivity" />
-        <activity android:name=".LoginSignup.LoginActivity" />
+        <activity android:name=".Auth.RegisterationActivity" />
+        <activity android:name=".Auth.LoginActivity" />
         <activity android:name=".Controller.MainActivity" />
     </application>
 

@@ -5,9 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.ficruty.caocap.Controller.MainActivity
-import com.ficruty.caocap.LoginSignup.LoginActivity
-import com.ficruty.caocap.LoginSignup.RegisterationActivity
 import com.ficruty.caocap.Setting.SettingActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

@@ -1,15 +1,11 @@
-package com.ficruty.caocap.LoginSignup
+package com.ficruty.caocap.Auth
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.ficruty.caocap.Controller.MainActivity
 import com.ficruty.caocap.Explore
-import com.ficruty.caocap.HomeActivity
 import com.ficruty.caocap.Models.Users
 import com.ficruty.caocap.R
 import com.ficruty.caocap.Services.Language

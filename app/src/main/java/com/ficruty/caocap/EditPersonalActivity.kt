@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.ficruty.caocap.Models.UserData
 import com.google.firebase.auth.ktx.auth
@@ -31,8 +32,11 @@ class EditPersonalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_personal)
 
+        edit_profile_email_edit_text.isFocusable=false;
+        edit_profile_email_edit_text.setOnFocusChangeListener(){view, hasFocus ->
+        if(hasFocus){Toast.makeText(this,"You can't change email in this version of app.",Toast.LENGTH_LONG).show()}
+        }
         getUserData()
-
 
 
 
@@ -73,19 +77,18 @@ class EditPersonalActivity : AppCompatActivity() {
 
 
         edit_profile_save_button.setOnClickListener() {
-//            uploadUserData()
+            uploadUserData()
 //            uploadeProfileImage()
-
-            Toast.makeText(this,"Soon ..",Toast.LENGTH_SHORT).show()
         }
 
 
         //-------------------------------------------------------------------------------------------
         // Select image.
         edit_profile_image_view.setOnClickListener(){
-            var photoIntent= Intent(Intent.ACTION_PICK);
-            photoIntent.type="image/*"
-            startActivityForResult(photoIntent,0)
+              Toast.makeText(this,"You can't change photo in this version of app",Toast.LENGTH_SHORT).show()
+//            var photoIntent= Intent(Intent.ACTION_PICK);
+//            photoIntent.type="image/*"
+//            startActivityForResult(photoIntent,0)
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

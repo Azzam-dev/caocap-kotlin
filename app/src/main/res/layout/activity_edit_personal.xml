@@ -285,6 +285,7 @@
                     android:layout_marginStart="120dp"
                     android:backgroundTint="@android:color/white"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textPersonName"
                     android:textColor="@android:color/white"
                     app:layout_constraintBottom_toBottomOf="@+id/textView20"

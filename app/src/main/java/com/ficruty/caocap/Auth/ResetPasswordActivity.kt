@@ -1,4 +1,4 @@
-package com.ficruty.caocap.LoginSignup
+package com.ficruty.caocap.Auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

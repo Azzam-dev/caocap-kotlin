@@ -11,9 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ficruty.caocap.Adapter.CaocapAdapter
 import com.ficruty.caocap.Adapter.CaocapAdapterCode
-import com.ficruty.caocap.LoginSignup.LoginActivity
+import com.ficruty.caocap.Auth.LoginActivity
 import com.ficruty.caocap.Models.Caocap
-import com.ficruty.caocap.Services.IntentParse
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
@@ -27,7 +26,7 @@ class Explore : AppCompatActivity() {
 
 
     var animState = false
-    private var Db: DatabaseReference = Firebase.database.getReference("caocap")
+    private val Db: DatabaseReference = Firebase.database.getReference("caocap")
     var adapter = GroupAdapter<ViewHolder>()
     var  fireBaseAuth  = FirebaseAuth.getInstance()
 
@@ -91,10 +90,12 @@ class Explore : AppCompatActivity() {
 
        if (fireBaseAuth.currentUser == null){
            val intent = Intent(this, LoginActivity::class.java)
+           intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
            startActivity(intent)
        }else {
 
 //        GlobalScope.launch(Dispatchers.Unconfined) {
+
 
            Db.orderByKey().limitToFirst(20)
                .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -131,7 +132,6 @@ class Explore : AppCompatActivity() {
                                        }
                                    }
                                }
-
                            }
                            Log.d("Thread", Thread.currentThread().toString())
                        }).start()

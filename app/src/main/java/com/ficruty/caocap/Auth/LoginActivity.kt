@@ -1,16 +1,13 @@
-package com.ficruty.caocap.LoginSignup
+package com.ficruty.caocap.Auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.ficruty.caocap.Explore
-import com.ficruty.caocap.HomeActivity
 import com.ficruty.caocap.PersonalActivity
 import com.ficruty.caocap.R
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
