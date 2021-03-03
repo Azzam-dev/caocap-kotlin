@@ -18,10 +18,10 @@ class ChangeEmailActivity : AppCompatActivity() {
 
 
         change_email_acitivty_update_button.setOnClickListener(){
-            var currentEmail=change_email_acitivty_current_email_edit_text.text.toString()
-            var password=change_email_acitivty_password_edit_text.text.toString()
-            var newEmail=change_email_acitivty_new_email_edit_text.text.toString().trim().toLowerCase()
-            var confirmEmail=change_email_acitivty_confirm_new_email_edit_text.text.toString().trim()
+            val currentEmail=change_email_acitivty_current_email_edit_text.text.toString()
+            val password=change_email_acitivty_password_edit_text.text.toString()
+            val newEmail=change_email_acitivty_new_email_edit_text.text.toString().trim().toLowerCase()
+            val confirmEmail=change_email_acitivty_confirm_new_email_edit_text.text.toString().trim()
 
             Firebase.auth.signInWithEmailAndPassword(currentEmail,password).addOnSuccessListener {
                 if(newEmail.equals(confirmEmail,ignoreCase = true)){

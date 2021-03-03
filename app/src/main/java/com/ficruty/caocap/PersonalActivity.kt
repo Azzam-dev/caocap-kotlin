@@ -54,7 +54,9 @@ class PersonalActivity : AppCompatActivity() {
     private var mFirebaseStorage : FirebaseStorage = FirebaseStorage.getInstance()
     private var html=""
     private var css=""
+    private var userAuth = auth.currentUser
     private var js=""
+
     private var code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>\\$css</style></head><body>\\$html<script>\\$js</script></body></html>\n"
     private var caocapColor : Int = 0
     private val firstOwner:HashMap<String,String> = HashMap()
@@ -488,12 +490,12 @@ class PersonalActivity : AppCompatActivity() {
 
     private fun borderColor(number:Int){
         when (number) {
-            0 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_red_color)
-            1 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_orange_color)
-            2 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_green_color)
-            3 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_blue_color)
-            4 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_pink_color)
-            5 -> builder_image_border4.setBackgroundResource(R.drawable.edit_profile_white_color)
+            0 -> builder_image_border4.setBackgroundResource(R.color.editProfileRed)
+            1 -> builder_image_border4.setBackgroundResource(R.color.editProfileOrange)
+            2 -> builder_image_border4.setBackgroundResource(R.color.editProfileGreen)
+            3 -> builder_image_border4.setBackgroundResource(R.color.editProfileBlue)
+            4 -> builder_image_border4.setBackgroundResource(R.color.editProfilePink)
+            5 -> builder_image_border4.setBackgroundResource(R.color.editProfileWhite)
         }
     }
 
@@ -668,7 +670,7 @@ class PersonalActivity : AppCompatActivity() {
     }
 
     private fun inti() {
-
+        userAuth?.reload()
         personal_my_caoaps_recycler_view.layoutManager =
             StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
 

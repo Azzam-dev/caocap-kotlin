@@ -2,6 +2,7 @@ package com.ficruty.caocap
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -17,9 +18,15 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import com.google.firebase.storage.ktx.storage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_edit_personal.*
+import kotlinx.android.synthetic.main.activity_personal.*
+import java.io.ByteArrayOutputStream
+import java.util.*
 
 class EditPersonalActivity : AppCompatActivity() {
 
@@ -27,6 +34,13 @@ class EditPersonalActivity : AppCompatActivity() {
     var borderColor=-1
     var newColorOfBorder:Int?=null
     var selectPhotoUri: Uri?=null;
+    private  var imgUrl : String = ""
+
+
+    private lateinit var storgeRef : StorageReference
+    private var mFirebaseStorage : FirebaseStorage = FirebaseStorage.getInstance()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +113,36 @@ class EditPersonalActivity : AppCompatActivity() {
             var bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectPhotoUri);
             edit_profile_image_view.setImageBitmap(bitmap)
 
+
+            val outputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG,80,outputStream)
+
+            val dataImg : ByteArray  = outputStream.toByteArray()
+
+            val path : String = "profile-images/" + UUID.randomUUID() + ".png"
+            storgeRef = mFirebaseStorage.getReference(path)
+
+            val uploadTask : UploadTask =   storgeRef.putBytes(dataImg)
+
+            val urlTask = uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                //imageURL
+                storgeRef.downloadUrl
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    imgUrl = task.result.toString()
+                    Log.d("imgUpload", imgUrl)
+
+                }else{Log.d("imgUpload", task.exception.toString()) }
+
+            }
+
+
+
             var bitmapDrawable= BitmapDrawable(bitmap)
             edit_profile_image_view.setBackgroundDrawable(bitmapDrawable)
 
@@ -106,33 +150,34 @@ class EditPersonalActivity : AppCompatActivity() {
     }
     //    -------------------------------------------------------------------------------------------
     //     Get user information from firebase .
-    fun getUserData() {
-        var uid = Firebase.auth.uid.toString()
-        var reference = Firebase.database.getReference("users/$uid")
+    private fun getUserData() {
+        val uid = Firebase.auth.uid.toString()
+        val reference = Firebase.database.getReference("users/$uid")
         reference.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("Not yet implemented")
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                var user = p0.getValue(UserData::class.java)
+                val user = p0.getValue(UserData::class.java)
+                    Log.d("anas",p0.toString())
 
-                var theUsername = user?.username.toString()
+                val theUsername = user?.username.toString()
                 edit_profile_username_edit_text.setText(theUsername)
-                var name=user?.name.toString()
+                val name=user?.name.toString()
                 edit_profile_name_edit_text.setText(name)
-                var bio=user?.bio.toString()
+                val bio=user?.bio.toString()
                 edit_profile_bio_edit_text.setText(bio)
-                var website=user?.website.toString()
+                val website=user?.website.toString()
                 edit_profile_website_edit_text.setText(website)
-                var email = user?.email.toString()
+                val email = user?.email.toString()
                 edit_profile_email_edit_text.setText(email)
                 emailOne=email
-                var phone=user?.phoneNumber.toString()
+                val phone=user?.phoneNumber.toString()
                 edit_profile_phone_edit_text.setText(phone)
                 var imageLink="NoImage"
                 imageLink=user?.imageURL.toString()
-                if(imageLink != "NoImage"){
+                if(imageLink.isNotEmpty()){
                     Picasso.get().load(imageLink).into(edit_profile_image_view)
                 }
                 borderColor=user?.color.toString().toInt()
@@ -147,27 +192,28 @@ class EditPersonalActivity : AppCompatActivity() {
 
     private fun borderColor(number:Int){
         when (number) {
-            0 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_red_color)
-            1 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_orange_color)
-            2 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_green_color)
-            3 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_blue_color)
-            4 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_pink_color)
-            5 -> edit_profile_image_border.setBackgroundResource(R.drawable.edit_profile_white_color)
+            0 -> builder_image_border4.setBackgroundResource(R.color.editProfileRed)
+            1 -> builder_image_border4.setBackgroundResource(R.color.editProfileOrange)
+            2 -> builder_image_border4.setBackgroundResource(R.color.editProfileGreen)
+            3 -> builder_image_border4.setBackgroundResource(R.color.editProfileBlue)
+            4 -> builder_image_border4.setBackgroundResource(R.color.editProfilePink)
+            5 -> builder_image_border4.setBackgroundResource(R.color.editProfileWhite)
         }
     }
     //-------------------------------------------------------------------------------------------
 
     // Upload user data to database .
     private fun uploadUserData() {
-        var uid = Firebase.auth.uid
-        var reference = Firebase.database.getReference("users/$uid")
+        val uid = Firebase.auth.uid
+        val reference = Firebase.database.getReference("users/$uid")
 
-        var username = edit_profile_username_edit_text.text.toString()
-        var name = edit_profile_name_edit_text.text.toString()
-        var bio = edit_profile_bio_edit_text.text.toString()
-        var website = edit_profile_website_edit_text.text.toString()
-        var email = edit_profile_email_edit_text.text.toString()
-        var phone = edit_profile_phone_edit_text.text.toString()
+        val username = edit_profile_username_edit_text.text.toString()
+        val name = edit_profile_name_edit_text.text.toString()
+        val bio = edit_profile_bio_edit_text.text.toString()
+        val website = edit_profile_website_edit_text.text.toString()
+        val email = edit_profile_email_edit_text.text.toString()
+        val phone = edit_profile_phone_edit_text.text.toString()
+
 
         // Check username and email are empty or not .
         if(username.isEmpty() && email.isEmpty()){
@@ -208,7 +254,7 @@ class EditPersonalActivity : AppCompatActivity() {
         if (phone.isNotEmpty()){
             reference.child("phoneNumber").setValue(phone)
         }
-
+        reference.child("imageURL").setValue(imgUrl)
         //Upload color of border
         if(borderColor != -1){
             reference.child("color").setValue(borderColor)

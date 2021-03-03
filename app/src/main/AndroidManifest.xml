@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         package="com.ficruty.caocap">
 
+    <uses-permission android:name="android.permission.READ_LOGS"
+            tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.BATTERY_STATS"
+            tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/caocap_icon"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:roundIcon="@drawable/caocap_circle"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
 
         <activity android:name=".Setting.ChangeLanguageActivity" />
         <activity android:name=".Setting.ChangePasswordActivity" />

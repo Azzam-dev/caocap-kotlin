@@ -21,17 +21,20 @@
             tools:text="username" />
 
 
-    <TextView
+    <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/personal_image_border"
-            android:layout_width="78dp"
-            android:layout_height="78dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/edit_profile_red_color"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/editProfileRed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view" />
+            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view"
+            app:shapeAppearanceOverlay="@style/Circular"
 
-    <ImageView
+            />
+
+    <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageView10"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -39,9 +42,11 @@
             app:layout_constraintEnd_toEndOf="@+id/personal_profile_image_view"
             app:layout_constraintStart_toStartOf="@+id/personal_profile_image_view"
             app:layout_constraintTop_toTopOf="@+id/personal_profile_image_view"
-            app:srcCompat="@drawable/edit_profile_image_background" />
+            app:srcCompat="@drawable/edit_profile_image_background"
+            app:shapeAppearanceOverlay="@style/Circular"
+            />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/personal_profile_image_view"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -49,9 +54,10 @@
             android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:src="@drawable/astronaut"
-
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view" />
+            app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view"
+            app:shapeAppearanceOverlay="@style/Circular"
+            />
 
     <TextView
             android:id="@+id/textView3"
@@ -349,17 +355,18 @@
                 tools:layout_conversion_absoluteWidth="411dp">
 
 
-            <TextView
+            <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/builder_image_border4"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:background="@drawable/edit_profile_red_color"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@color/editProfileRed"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.135" />
+                    app:layout_constraintVertical_bias="0.136"
+                    app:shapeAppearanceOverlay="@style/Circular" />
 
             <ImageView
                     android:id="@+id/builder_link_select_caocap_image_button4"
