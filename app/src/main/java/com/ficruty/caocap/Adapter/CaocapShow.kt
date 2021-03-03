@@ -1,7 +1,12 @@
 package com.ficruty.caocap.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import android.util.Log
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.annotation.RequiresApi
 import com.ficruty.caocap.CaocapShowActivity
 import com.ficruty.caocap.Models.Caocap
 import com.ficruty.caocap.R
@@ -19,11 +24,19 @@ class CaocapAdapter(var caocap: Caocap, var oldestCaocapId: String): Item<ViewHo
         return R.layout.simple_item;
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name
         val height = arrayOf(700, 900, 1000).random()
         viewHolder.itemView.simple_item_container_layout.layoutParams.height=height
-
+        viewHolder.itemView.simple_item_caocap_web_view.settings.javaScriptEnabled = true
+        viewHolder.itemView.simple_item_caocap_web_view.webViewClient = object : WebViewClient(){
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url)
+                return true
+            }
+        }
         viewHolder.itemView.simple_item_caocap_web_view.loadUrl(caocap.link);
 
         viewHolder.itemView.simple_item_caocap_name_text_view.setOnClickListener {
@@ -44,6 +57,7 @@ class CaocapAdapterCode(var caocap: Caocap, var dt: DataSnapshot, var oldestCaoc
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
         viewHolder.itemView.simple_item_caocap_name_text_view.text=caocap.name;
@@ -51,14 +65,16 @@ class CaocapAdapterCode(var caocap: Caocap, var dt: DataSnapshot, var oldestCaoc
         viewHolder.itemView.simple_item_container_layout.layoutParams.height=height
 
 
-        val code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>\\${dt.child(
+        val code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>${dt.child(
             "css"
-        ).value}</style></head><body>\\${dt.child("html").value}<script>\\${dt.child("js").value}</script></body></html>\n"
+        ).value}</style></head><body>${dt.child("html").value}<script>${dt.child("js").value}</script></body></html>\n"
         Log.d(
             "cods",
             "${dt.child("html").value} \n ${dt.child("css").value} \n ${dt.child("js").value}"
         )
+
         viewHolder.itemView.simple_item_caocap_web_view.loadData(code, "text/html", "UTF-8")
+
 
         viewHolder.itemView.simple_item_caocap_name_text_view.setOnClickListener {
 

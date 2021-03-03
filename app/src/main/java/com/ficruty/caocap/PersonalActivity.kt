@@ -57,7 +57,7 @@ class PersonalActivity : AppCompatActivity() {
     private var userAuth = auth.currentUser
     private var js=""
 
-    private var code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>\\$css</style></head><body>\\$html<script>\\$js</script></body></html>\n"
+    private var code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>$css</style></head><body>$html<script>$js</script></body></html>\n"
     private var caocapColor : Int = 0
     private val firstOwner:HashMap<String,String> = HashMap()
     private  var imgUrl : String = ""
@@ -488,16 +488,7 @@ class PersonalActivity : AppCompatActivity() {
         builder_code_coacap_Link_edit_text5.setText("")
     }
 
-    private fun borderColor(number:Int){
-        when (number) {
-            0 -> builder_image_border4.setBackgroundResource(R.color.editProfileRed)
-            1 -> builder_image_border4.setBackgroundResource(R.color.editProfileOrange)
-            2 -> builder_image_border4.setBackgroundResource(R.color.editProfileGreen)
-            3 -> builder_image_border4.setBackgroundResource(R.color.editProfileBlue)
-            4 -> builder_image_border4.setBackgroundResource(R.color.editProfilePink)
-            5 -> builder_image_border4.setBackgroundResource(R.color.editProfileWhite)
-        }
-    }
+
 
     private fun saveTextState(){
         css =  builder_code_acitivty_code_edit_css.text.toString()
@@ -652,17 +643,22 @@ class PersonalActivity : AppCompatActivity() {
         builder_code_acitivty_code_edit_css.addTextChangedListener {
 
             saveTextState()
+            code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>$css</style></head><body>$html<script>$js</script></body></html>\n"
             builder_code_acitivty_web_view.loadData(code,"text/html","UTF-8")
 
         }
         builder_code_acitivty_code_edit_text.addTextChangedListener {
 
             saveTextState()
+            code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>$css</style></head><body>$html<script>$js</script></body></html>\n"
+
             builder_code_acitivty_web_view.loadData(code,"text/html","UTF-8")
         }
         builder_code_acitivty_code_edit_js.addTextChangedListener {
 
             saveTextState()
+            code="<!DOCTYPE html><html><head><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><meta charset=\"utf-8\"><title>CAOCAP</title><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\"><style>$css</style></head><body>$html<script>$js</script></body></html>\n"
+
             builder_code_acitivty_web_view.loadData(code,"text/html","UTF-8")
 
         }
@@ -768,7 +764,7 @@ class PersonalActivity : AppCompatActivity() {
                         .into(personal_profile_image_view)
                 }
                 borderColor = user?.color.toString().toInt()
-                colorOfBorder(borderColor)
+                borderColor(borderColor)
 
 
             }
@@ -777,14 +773,16 @@ class PersonalActivity : AppCompatActivity() {
 
     //-------------------------------------------------------------------------------------------
     // Color of border .
-    private fun colorOfBorder(number: Int) {
+//
+
+    private fun borderColor(number:Int){
         when (number) {
-            0 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_red_color)
-            1 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_orange_color)
-            2 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_green_color)
-            3 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_blue_color)
-            4 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_pink_color)
-            5 -> personal_image_border.setBackgroundResource(R.drawable.edit_profile_white_color)
+            0 -> builder_image_view4.setStrokeColorResource(R.color.editProfileRed)
+            1 -> builder_image_view4.setStrokeColorResource(R.color.editProfileOrange)
+            2 -> builder_image_view4.setStrokeColorResource(R.color.editProfileGreen)
+            3 -> builder_image_view4.setStrokeColorResource(R.color.editProfileBlue)
+            4 -> builder_image_view4.setStrokeColorResource(R.color.editProfilePink)
+            5 -> builder_image_view4.setStrokeColorResource(R.color.editProfileWhite)
         }
     }
 

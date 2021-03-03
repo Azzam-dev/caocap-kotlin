@@ -4,6 +4,6 @@
     <style name="Circular" >
 
         <item name="cornerSize">20%</item>
-
+        <item name="strokeColor"> @color/editProfileRed</item>
     </style>
 </resources>

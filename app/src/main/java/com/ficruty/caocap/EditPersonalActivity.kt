@@ -192,12 +192,12 @@ class EditPersonalActivity : AppCompatActivity() {
 
     private fun borderColor(number:Int){
         when (number) {
-            0 -> builder_image_border4.setBackgroundResource(R.color.editProfileRed)
-            1 -> builder_image_border4.setBackgroundResource(R.color.editProfileOrange)
-            2 -> builder_image_border4.setBackgroundResource(R.color.editProfileGreen)
-            3 -> builder_image_border4.setBackgroundResource(R.color.editProfileBlue)
-            4 -> builder_image_border4.setBackgroundResource(R.color.editProfilePink)
-            5 -> builder_image_border4.setBackgroundResource(R.color.editProfileWhite)
+            0 -> edit_profile_image_border.setBackgroundResource(R.color.editProfileRed)
+            1 -> edit_profile_image_border.setBackgroundResource(R.color.editProfileOrange)
+            2 -> edit_profile_image_border.setBackgroundResource(R.color.editProfileGreen)
+            3 -> edit_profile_image_border.setBackgroundResource(R.color.editProfileBlue)
+            4 -> edit_profile_image_border.setBackgroundResource(R.color.editProfilePink)
+            5 -> edit_profile_image_border.setBackgroundResource(R.color.editProfileWhite)
         }
     }
     //-------------------------------------------------------------------------------------------

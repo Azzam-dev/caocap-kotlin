@@ -26,8 +26,9 @@
             android:layout_width="74dp"
             android:layout_height="74dp"
             android:layout_marginStart="30dp"
+            app:strokeColor="@color/editProfileRed"
+            app:strokeWidth="3dp"
             android:layout_marginTop="14dp"
-            android:background="@color/editProfileRed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personal_username_text_view"
             app:shapeAppearanceOverlay="@style/Circular"
@@ -365,6 +366,7 @@
                     app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="invisible"
                     app:layout_constraintVertical_bias="0.136"
                     app:shapeAppearanceOverlay="@style/Circular" />
 
@@ -388,6 +390,8 @@
                     android:background="@drawable/caocap_icon"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:strokeWidth="4dp"
+                    app:strokeColor="@color/editProfileRed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

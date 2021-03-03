@@ -97,7 +97,7 @@ class Explore : AppCompatActivity() {
 //        GlobalScope.launch(Dispatchers.Unconfined) {
 
 
-           Db.orderByKey().limitToFirst(20)
+           Db.orderByKey().limitToLast(30)
                .addListenerForSingleValueEvent(object : ValueEventListener {
                    override fun onCancelled(p0: DatabaseError) {
 
@@ -223,7 +223,7 @@ class Explore : AppCompatActivity() {
 
     //  GlobalScope.launch(Dispatchers.Unconfined) {
           //  yield()
-            Db.orderByKey().startAt(oldestCaocapId).limitToFirst(20)
+            Db.orderByKey().startAt(oldestCaocapId).limitToLast(30)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
                         Log.d("explore onCancelled data base", "msg : ${p0.message}")
