@@ -65,10 +65,6 @@ class Explore : AppCompatActivity() {
         }
         explore_one_recycler_view.addOnScrollListener(scrollListener)
         caocapcode_name_button.setOnClickListener() {
-        finish()
-
-        }
-        caocapcode_name_button.setOnLongClickListener() {
 
             if (!animState) {
 
@@ -79,6 +75,10 @@ class Explore : AppCompatActivity() {
                 closeMsin()
             }
 
+
+        }
+        caocapcode_name_button.setOnLongClickListener() {
+            finish()
             true
         }
 

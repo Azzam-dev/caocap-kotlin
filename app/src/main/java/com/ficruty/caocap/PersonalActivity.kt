@@ -157,10 +157,6 @@ class PersonalActivity : AppCompatActivity() {
     private fun listeners() {
 
         caocapcode_name_button.setOnClickListener {
-            finish()
-        }
-
-        caocapcode_name_button.setOnLongClickListener {
 
             if (!animState) {
 
@@ -211,6 +207,11 @@ class PersonalActivity : AppCompatActivity() {
 
             }
 
+
+        }
+
+        caocapcode_name_button.setOnLongClickListener {
+            finish()
             true
         }
 

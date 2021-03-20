@@ -195,8 +195,7 @@
                 android:id="@+id/web_sheet"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-                >
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
             <WebView
                     android:id="@+id/builder_code_acitivty_web_view"
@@ -239,11 +238,11 @@
                     android:layout_height="0dp"
                     android:ems="10"
                     android:gravity="start|top"
-                    app:layout_constraintBottom_toTopOf="@+id/builder_code_acitivty_publish_button"
                     android:hint="Type your code here"
                     android:inputType="textMultiLine"
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/colorAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/builder_code_acitivty_publish_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
@@ -256,11 +255,11 @@
                     android:ems="10"
                     android:gravity="start|top"
                     android:hint="Type your code here"
-                    app:layout_constraintBottom_toTopOf="@+id/builder_code_acitivty_publish_button"
-
                     android:inputType="textMultiLine"
+
                     android:textColor="@color/colorAccent"
                     android:textColorHint="@color/colorAccent"
+                    app:layout_constraintBottom_toTopOf="@+id/builder_code_acitivty_publish_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
@@ -361,12 +360,12 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:background="@color/editProfileRed"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.515"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:visibility="invisible"
                     app:layout_constraintVertical_bias="0.136"
                     app:shapeAppearanceOverlay="@style/Circular" />
 
@@ -390,13 +389,13 @@
                     android:background="@drawable/caocap_icon"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:strokeWidth="4dp"
-                    app:strokeColor="@color/editProfileRed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.13999999"
-                    app:shapeAppearanceOverlay="@style/Circular" />
+                    app:shapeAppearanceOverlay="@style/Circular"
+                    app:strokeColor="@color/editProfileRed"
+                    app:strokeWidth="4dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout6"
