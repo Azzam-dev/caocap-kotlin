@@ -27,32 +27,31 @@ class ChangeLanguageActivity : AppCompatActivity() {
         languagesArray.add(Language.EN.lan.toString())
         languagesArray.add(Language.AR.lan.toString())
 
-        while(counter<languagesArray.size){
-            if(languagesArray[counter].equals(Firebase.auth.languageCode.toString(),ignoreCase = true)){
-
-            }
-        }
+//        while(counter<languagesArray.size){
+//            if(languagesArray[counter].equals(Firebase.auth.languageCode.toString(),ignoreCase = true)){
+//            }
+//        }
 
 //        change_language_activity_spinner.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languagesArray);
-        change_language_activity_spinner.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languagesArray)
-
-        change_language_activity_spinner.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                newLanguage=parent?.getItemAtPosition(position).toString()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                newLanguage=Firebase.auth.languageCode.toString()
-            }
-
-        }
-
-        change_language_activity_update_button.setOnClickListener(){
+//        change_language_activity_spinner.adapter=ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,languagesArray)
+//
+//        change_language_activity_spinner.onItemSelectedListener=object:AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(
+//                parent: AdapterView<*>?,
+//                view: View?,
+//                position: Int,
+//                id: Long
+//            ) {
+//                newLanguage=parent?.getItemAtPosition(position).toString()
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+////                newLanguage=Firebase.auth.languageCode.toString()
+//            }
+//
+//        }
+//
+//        change_language_activity_update_button.setOnClickListener(){
 
                 Firebase.auth.setLanguageCode("kh")
 //            if(Firebase.auth.languageCode.toString()!=newLanguage){
@@ -64,7 +63,7 @@ class ChangeLanguageActivity : AppCompatActivity() {
 //
 //            }
 
-        }
+//        }
 
     }
 
