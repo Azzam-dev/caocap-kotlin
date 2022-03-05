@@ -32,7 +32,8 @@ class CaocapAdapter(var caocap: Caocap, var oldestCaocapId: String): Item<ViewHo
         viewHolder.itemView.simple_item_container_layout.layoutParams.height=height
         viewHolder.itemView.simple_item_caocap_web_view.settings.javaScriptEnabled = true
         viewHolder.itemView.simple_item_caocap_web_view.webViewClient = object : WebViewClient(){
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+            // url type string has been modified from String? to String
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String): Boolean {
                 view?.loadUrl(url)
                 return true
             }
@@ -46,16 +47,26 @@ class CaocapAdapter(var caocap: Caocap, var oldestCaocapId: String): Item<ViewHo
             intent.putExtra("caocapType", caocap.type)
             intent.putExtra("caocapLink", caocap.link)
             it.context.startActivity(intent)
+
         }
     }
 }
+/*
+1) make the CaocapAdapterProfileLink class -> to inner class
+2) inherite View.OnClickListener class
+3) implement the nessasery methods for this inherite class
 
+*/
 class CaocapAdapterCode(var caocap: Caocap, var dt: DataSnapshot, var oldestCaocapId: String): Item<ViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.simple_item;
     }
+    //------------------------------ Feras -----------------------------------------------
+    init {
 
+    }
 
+    //------------------------------ Feras ------------------------------------------------
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun bind(viewHolder: ViewHolder, position: Int) {
@@ -94,6 +105,8 @@ class CaocapAdapterCode(var caocap: Caocap, var dt: DataSnapshot, var oldestCaoc
 
 }
 
+
+
 class CaocapAdapterProfileCode(var caocap: Caocap, var dt: DataSnapshot, var key: String,var caocapSelectionListener: (key : String,name : String, html : String,css: String,js : String,pos:Int) -> Unit): Item<ViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.simple_item_profile;
@@ -118,6 +131,8 @@ class CaocapAdapterProfileCode(var caocap: Caocap, var dt: DataSnapshot, var key
 
     }
 }
+
+
 class CaocapAdapterProfileLink(var caocap: Caocap, var key: String, var caocapSelectionListener: (name: String,link : String,key : String) -> Unit): Item<ViewHolder>(){
     override fun getLayout(): Int {
         return R.layout.simple_item_profile;
