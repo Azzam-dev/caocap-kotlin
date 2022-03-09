@@ -1,13 +1,23 @@
 package com.ficruty.caocap.Adapter
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Intent
 import android.os.Build
+import android.text.Layout
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.RecyclerView
 import com.ficruty.caocap.CaocapShowActivity
+import com.ficruty.caocap.Database.AboutData
 import com.ficruty.caocap.Models.Caocap
 import com.ficruty.caocap.R
 import com.google.firebase.database.DataSnapshot
@@ -21,6 +31,10 @@ import kotlinx.android.synthetic.main.simple_item_profile.view.*
 
 class CaocapAdapter(var caocap: Caocap, var oldestCaocapId: String): Item<ViewHolder>(){
     override fun getLayout(): Int {
+
+//        val vh:CaocapAdapterCode = CaocapAdapterCode(LayoutInflater.from(parentDataObserver)
+//            .inflate(R.layout.simple_item,false))
+
         return R.layout.simple_item;
     }
 
@@ -47,6 +61,8 @@ class CaocapAdapter(var caocap: Caocap, var oldestCaocapId: String): Item<ViewHo
             intent.putExtra("caocapType", caocap.type)
             intent.putExtra("caocapLink", caocap.link)
             it.context.startActivity(intent)
+            Log.d("CAOCAPSHOW","caocap page opened")
+
 
         }
     }
@@ -61,12 +77,6 @@ class CaocapAdapterCode(var caocap: Caocap, var dt: DataSnapshot, var oldestCaoc
     override fun getLayout(): Int {
         return R.layout.simple_item;
     }
-    //------------------------------ Feras -----------------------------------------------
-    init {
-
-    }
-
-    //------------------------------ Feras ------------------------------------------------
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun bind(viewHolder: ViewHolder, position: Int) {
@@ -153,3 +163,48 @@ class CaocapAdapterProfileLink(var caocap: Caocap, var key: String, var caocapSe
 
     }
 }
+
+    class AboutSettingAdapter(var arrayList: ArrayList<AboutData>, val listener: onItemClickListener): RecyclerView.Adapter<AboutSettingAdapter.DataHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataHolder {
+        val vh:DataHolder = DataHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_about_activity,parent,false))
+
+        return vh
+    }
+
+    override fun onBindViewHolder(holder: DataHolder, position: Int) {
+        val data:AboutData = arrayList.get(position)
+        holder.imageView.setImageResource(data.imageView)
+        holder.textView.setText(data.aboutName)
+    }
+
+    override fun getItemCount(): Int {
+        return arrayList.size
+    }
+
+    inner class DataHolder(view: View):RecyclerView.ViewHolder(view),
+        View.OnClickListener{
+        val imageView: ImageView = view.findViewById(R.id.image_view_item_about_activity)
+        val textView: TextView = view.findViewById(R.id.text_view_item_about_activity)
+
+        // make init for itemView.setOnClickListener
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            val position:Int = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+
+        }
+
+        }
+        interface onItemClickListener {
+            fun onItemClick(position: Int)
+
+        }
+    }
+
+

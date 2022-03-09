@@ -7,6 +7,8 @@
         android:layout_height="match_parent"
         android:paddingBottom="16dp">
 
+
+
     <!--    <FrameLayout-->
     <!--            android:id="@+id/simple_item_web_view_frame"-->
     <!--            android:layout_width="0dp"-->
@@ -37,6 +39,7 @@
     <!--    </FrameLayout>-->
 
 
+
     <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier2"
             android:layout_width="wrap_content"
@@ -56,6 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
         <WebView
                 android:id="@+id/simple_item_caocap_web_view"
                 android:layout_width="match_parent"
@@ -68,6 +72,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0">
+
 
         </WebView>
 

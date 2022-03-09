@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/caocapDefaultBackground"
+        tools:context=".Setting.AboutActivity">
+
+<!--    <EditText-->
+<!--            android:id="@+id/about_activity_search_filter"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:drawableStart="@drawable/item_about_activity_search_filter_vector"-->
+<!--            android:drawablePadding="8dp"-->
+<!--            android:inputType="text"-->
+<!--            android:hint="Search here..."/>-->
+
+<!--    <ListView-->
+<!--            android:id="@+id/about_activity_list_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/about_activity_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</LinearLayout>

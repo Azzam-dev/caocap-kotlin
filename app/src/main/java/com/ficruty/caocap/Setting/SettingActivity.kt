@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.ficruty.caocap.R
 import com.google.firebase.auth.FirebaseAuth
@@ -14,9 +15,14 @@ import kotlinx.android.synthetic.main.activity_setting.*
     private var userAuth = FirebaseAuth.getInstance().currentUser
 
 class SettingActivity : AppCompatActivity() {
+
+    private var yourActivity:TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+
+        connectViews()
 
             Log.d("anas", userAuth?.isEmailVerified.toString())
 
@@ -50,5 +56,13 @@ class SettingActivity : AppCompatActivity() {
             startActivity(Intent(this,ChangeLanguageActivity::class.java))
 
         }
+
+        yourActivity?.setOnClickListener {
+            startActivity(Intent(this, AboutActivity::class.java))
+        }
+    }
+
+    private fun connectViews() {
+        yourActivity = findViewById(R.id.setting_activity_your_activity)
     }
 }

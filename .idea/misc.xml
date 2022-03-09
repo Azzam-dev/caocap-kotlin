@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/item_about_activity_data_policy.xml" value="0.2165" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/activity_animation_test.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_builder_link.xml" value="0.26962432861328123" />
         <entry key="app/src/main/res/layout/activity_caocap_show.xml" value="0.15520833333333334" />
@@ -11,14 +13,18 @@
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_chat_log.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_data_policy.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_edit_personal.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_explore.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_menu.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/activity_personal.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_reset_password.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/item_about_activity.xml" value="0.2796875" />
         <entry key="app/src/main/res/layout/message_from_user.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/message_to_user.xml" value="0.2953125" />
-        <entry key="app/src/main/res/layout/simple_item.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/simple_item.xml" value="0.36767794844033064" />
         <entry key="app/src/main/res/layout/simple_item_profile.xml" value="0.19610507246376813" />
       </map>
     </option>
