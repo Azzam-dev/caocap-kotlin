@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.ficruty.caocap.R
@@ -17,6 +18,14 @@ import kotlinx.android.synthetic.main.activity_setting.*
 class SettingActivity : AppCompatActivity() {
 
     private var yourActivity:TextView? = null
+    private var notification:TextView? = null
+    private var privacy:TextView? = null
+    private var security:TextView? = null
+    private var ads:TextView? = null
+    private var account:TextView? = null
+    private var help:TextView? = null
+    private var about:TextView? = null
+    private var about_activity_item_filter:EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,12 +66,26 @@ class SettingActivity : AppCompatActivity() {
 
         }
 
-        yourActivity?.setOnClickListener {
+        about?.setOnClickListener {
             startActivity(Intent(this, AboutActivity::class.java))
         }
     }
 
     private fun connectViews() {
         yourActivity = findViewById(R.id.setting_activity_your_activity)
+        notification = findViewById(R.id.setting_activity_notification)
+        privacy = findViewById(R.id.setting_activity_privacy)
+        security = findViewById(R.id.setting_activity_security)
+        ads = findViewById(R.id.setting_activity_ads)
+        account = findViewById(R.id.setting_activity_account)
+        help = findViewById(R.id.setting_activity_help)
+        about = findViewById(R.id.setting_activity_about)
+        about_activity_item_filter = findViewById(R.id.activity_setting_search_filter)
+    }
+
+    private fun prepareListView() {
+//            about_activity_item_filter?.addTextChangedListener {
+//            arrayAdapter.filter.filter(it)
+//           }
     }
 }

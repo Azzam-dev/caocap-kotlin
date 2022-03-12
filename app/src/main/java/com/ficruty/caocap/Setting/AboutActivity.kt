@@ -3,21 +3,28 @@ package com.ficruty.caocap.Setting
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ficruty.caocap.Adapter.AboutSettingAdapter
+import com.ficruty.caocap.Database.AboutActivityContent
 import com.ficruty.caocap.Database.AboutData
+import com.ficruty.caocap.Database.settingAboutActivityContent
 import com.ficruty.caocap.R
+import com.ficruty.caocap.Services.IntentParse
+
 
 class AboutActivity : AppCompatActivity(), AboutSettingAdapter.onItemClickListener {
 
-    //private var about_activity_item_filter:EditText? = null
     private var about_activity_list_item:ListView? = null
     private var aboutData:AboutData? = null
     private var about_activity_recycler_item:RecyclerView? = null
+    private var activity_data_policy_text_view:TextView? = null
+
+    //public var name:String? = intent.getStringExtra("SETTINGS")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +38,9 @@ class AboutActivity : AppCompatActivity(), AboutSettingAdapter.onItemClickListen
 
     private fun connectViews() {
         //about_activity_list_item = findViewById(R.id.about_activity_list_view)
-        //about_activity_item_filter = findViewById(R.id.about_activity_search_filter)
         about_activity_recycler_item = findViewById(R.id.about_activity_recycler_view)
+        activity_data_policy_text_view = findViewById(R.id.activity_data_policy_text_view)
+        //activity_data_policy_text_view?.setText(name)
     }
 
     private fun prepareListView() {
@@ -52,9 +60,6 @@ class AboutActivity : AppCompatActivity(), AboutSettingAdapter.onItemClickListen
 
         about_activity_list_item?.adapter = arrayAdapter
 
-//        about_activity_item_filter?.addTextChangedListener {
-//            arrayAdapter.filter.filter(it)
-//        }
     }
 
     private fun prepareRecylerView() {
@@ -71,10 +76,30 @@ class AboutActivity : AppCompatActivity(), AboutSettingAdapter.onItemClickListen
     }
 
     override  fun onItemClick(position: Int) {
-        //Toast.makeText(this,"item $position clicked", Toast.LENGTH_SHORT).show()
-        //val clickedItem = array[position]
+
+        // setting lists
+        val array:ArrayList<AboutData> = ArrayList()
+        array.add(AboutData(R.drawable.item_about_activity_data_policy, "data policy"))
+        array.add(AboutData(R.drawable.item_about_activity_terms_of_use, "terms of use"))
+        array.add(AboutData(R.drawable.item_about_activity_open_source_libraries, "open source libraries"))
+
+        // data policy lists
+        val dataPolicyArray:ArrayList<String> = ArrayList()
+        dataPolicyArray.add("this is data policy")
+        dataPolicyArray.add("this is terms of use")
+        dataPolicyArray.add("this is open source libraries")
+
+
+
+        Toast.makeText(this,"item $position clicked",Toast.LENGTH_SHORT).show()
+        val clickedItem = array[position]
         val intent: Intent = Intent(this,DataPolicyActivity::class.java)
+        intent.putExtra("settings", settingAboutActivityContent[position])
         startActivity(intent)
+
+        Log.i("Entered_Setting_Activity", settingAboutActivityContent[position])
+        Log.i("Entered_Setting_Activity", position.toString())
+
 
     }
 

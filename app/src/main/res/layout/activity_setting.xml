@@ -52,42 +52,154 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/setting_acitivty_setting_text_view">
 
+        <!-- edit profile -->
+
+            <EditText
+                    android:id="@+id/activity_setting_search_filter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/item_about_activity_search_filter_vector"
+                    android:drawablePadding="8dp"
+                    android:inputType="text"
+                    android:hint="Search here..."
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@color/grey"
+                    android:paddingBottom="8dp"
+                    android:layout_marginBottom="8dp"/>
+
         <TextView
                 android:id="@+id/setting_activity_change_email_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="10dp"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
                 android:text="Change email"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
 
         <TextView
                 android:id="@+id/setting_activity_change_password_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="10dp"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
                 android:text="Change password"
-                android:textColor="@android:color/white" />
+                android:drawableStart="@drawable/ic_baseline_password_24"
+                android:drawablePadding="8dp"
+                android:textColor="@android:color/white"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
 
         <TextView
-        android:id="@+id/setting_activity_change_language_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+                android:id="@+id/setting_activity_change_language_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="Change language"
+                android:drawableStart="@drawable/ic_baseline_language_24"
+                android:drawablePadding="8dp"
+                android:textColor="@android:color/white"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
 
-        android:padding="10dp"
-        android:text="Change language"
-        android:textColor="@android:color/white" />
+        <!-- Setting buttons -->
 
         <TextView
                 android:id="@+id/setting_activity_your_activity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:padding="10dp"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
                 android:text="your activity"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_your_activity_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+        <TextView
+                android:id="@+id/setting_activity_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="notification"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_notifications_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_privacy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="privacy"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_privacy_tip_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_security"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="security"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_security_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="ads"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_ads_ex_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="account"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_account_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="help"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_help_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+        <TextView
+                android:id="@+id/setting_activity_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:padding="8dp"
+                android:text="about"
+                android:textColor="@android:color/white"
+                android:drawableStart="@drawable/ic_about_ex_24"
+                android:drawablePadding="8dp"
+                android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"/>
     </LinearLayout>
 
     <TextView

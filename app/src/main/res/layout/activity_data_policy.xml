@@ -7,43 +7,34 @@
         android:background="@color/caocapDefaultBackground"
         tools:context=".Setting.DataPolicyActivity">
 
+
+    <TextView
+            android:id="@+id/policyPrivacy"
+            android:background="#2B2B2B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Privacy Policy"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:drawableStart="@drawable/caocap_icon" />
+
     <TextView
             android:id="@+id/activity_data_policy_text_view"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="50sp"
-            android:text="About Android Device Policy
-            This article only applies to Google Workspace customers. Learn more about Google Workspace.
-
-            Android Device Policy enforces your organization’s security policies on your device to protect corporate data and make it more secure.
-
-            RequirementsÒ
-            Android 6.0 Marshmallow or later device that supports a work profile
-            Sign in to your Google Workspace account on your device
-            App permissions
-            When the Android Device Policy is installed on your device, it can access your device's:
-
-            Location—used to check for available WiFi networks, to align with security policies and offer a new network when needed.
-            Phone—used for device registration and to report device IDs to your administrator.
-            Camera (optional)—used to scan QR codes if your administrator enrolls the device for management.
-            What your administrator can do with Android Device Policy
-            Your administrator can:
-
-            Set these security policies:
-            Device password strength and required length
-            Invalid passwords allowed before the device is wiped
-            Recently expired passwords that are blocked
-            Days before a device password expires
-            Idle minutes before a device automatically locks
-            Days device has not synced before wiping
-            Application auditing
-            Device encryption
-            Remotely wipe a company-owned device
-            Blocking of security-compromised devices
-            Configure Wi-Fi networks and manage network access certificates. They might choose to hide a network's details so that only users who have the network name and password can connect to it.
-            Block access to Google apps from your work account based on your device’s country or region, network, security settings, or operating system."
+            android:layout_height="0dp"
+            android:padding="24dp"
             android:textAlignment="textStart"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/policyPrivacy"
             tools:ignore="MissingConstraints"
-            android:textColor="@android:color/white"/>
+            android:textSize="16sp"
+            android:scrollbars="vertical"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
